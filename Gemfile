@@ -19,6 +19,7 @@ gem 'paperclip', '~> 3.0'
 # gem 'sequel'
 gem 'nokogiri'
 
+gem 'hashdiff'
 
 
 # Use jquery as the JavaScript library

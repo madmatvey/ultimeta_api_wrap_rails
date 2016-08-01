@@ -46,5 +46,36 @@ class Import < ActiveRecord::Base
     self.digest = self.tenders_digest
   end
 
+  def save_all_tenders!
+    if self.data != nil
+      self.tenders.reverse.each do |tender|
+        t = Tender.new
+        t.data = tender
+        t.digest = Digest::SHA1.hexdigest(tender.to_s)
+        t.save
+        puts "Сохраняю тендер #{tender['Id']} (#{t.digest})"
+      end
+    end
+  end
+
+  def find_changes_tenders
+    if self.data != nil
+      result = []
+      self.tenders.each do |tender|
+        t = Tender.find_by_data_id(tender['Id']).first
+        puts "Нашел тендер #{t.data_id}"
+        digest = Digest::SHA1.hexdigest(tender.to_s)
+        if t.digest == digest
+          puts "Сравнил хеши – одинаковые == ИЗМЕНЕНИЙ НЕТ! (#{t.digest})==(#{digest})"
+          # result = nil
+        else
+          puts "Сравнил хеши – НЕ одинаковые: записываю результат в массив! (#{t.digest})==(#{digest})"
+          result << tender
+        end
+        # puts "Сохраняю тендер #{tender['Id']} (#{t.digest})"
+      end
+    end
+    result
+  end
 
 end
