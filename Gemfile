@@ -19,6 +19,8 @@ gem 'paperclip', '~> 3.0'
 # gem 'sequel'
 gem 'nokogiri'
 
+gem 'haml-rails'
+
 gem 'hashdiff'
 
 gem 'mailgun_rails'
