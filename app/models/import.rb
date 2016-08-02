@@ -69,10 +69,12 @@ class Import < ActiveRecord::Base
           puts "Сравнил хеши – одинаковые == ИЗМЕНЕНИЙ НЕТ! (#{t.digest})==(#{digest})"
           # result = nil
         else
-          puts "Сравнил хеши – НЕ одинаковые: записываю результат в массив! (#{t.digest})==(#{digest})"
+          puts "Сравнил хеши – НЕ одинаковые: записываю результат в modifications "
+          t.modifications.create({ data: HashDiff.diff(tender,t.data) })
+          t.data = tender
+          t.save
           result << tender
         end
-        # puts "Сохраняю тендер #{tender['Id']} (#{t.digest})"
       end
     end
     result
