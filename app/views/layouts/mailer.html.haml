@@ -33,7 +33,7 @@
                                               %tr{:style => "vertical-align: top"}
                                                 %td{:align => "center", :style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;width: 100%;padding-top: 15px;padding-right: 0px;padding-bottom: 5px;padding-left: 0px"}
                                                   %div{:align => "center", :style => "font-size:12px"}
-                                                    = link_to(image_tag("24tender_logo_500x100.png", align: "center", alt: "24TENDER", border: "0", style: "outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block;border: none;height: auto;line-height: 100%;margin: 0 auto;float: none;width: 100% !important;max-width: 226.666666666667px", title: "Платформа прозрачных бизнес отношений стран ЕАЭС", :width => "226.666666666667"), "http://24tender.ru/")
+                                                    = link_to(image_tag("24tender_logo_500x100.png", align: "center", alt: "24TENDER", border: "0", style: "outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block;border: none;height: auto;line-height: 100%;margin: 0 auto;float: none;width: 100% !important;max-width: 226.666666666667px", title: "Платформа прозрачных бизнес отношений стран ЕАЭС", :width => "226.666666666667"), "#{@tender.data_root_link}")
                                 /[if (gte mso 9)|(IE)] </td>
                                 /[if (gte mso 9)|(IE)] <td valign="top" width="453">
                                 .col.num8{:style => "display: inline-block;vertical-align: top;text-align: center;width: 453px"}
@@ -141,7 +141,7 @@
                                                           %strong= "#{@tender.data_customer_name}"
                                                           %br/
                                                           = "проводит торговую процедуру"
-                                                          %br/ 
+                                                          %br/
                                                           %strong= "#{@tender.data_name}"
                                                       %p{:style => "margin: 0;font-size: 14px;line-height: 21px;text-align: center"}
                                                         %span{:style => "font-size: 14px; line-height: 21px; color: rgb(51, 51, 51);"}= "(идентификационный номер: #{@tender.data_id})"
@@ -210,8 +210,8 @@
                                                     %div{:style => "font-size:12px;line-height:14px;color:#555555;font-family:'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;text-align:left;"}
                                                       %p{:style => "margin: 0;font-size: 12px;line-height: 14px"}
                                                         %span{:style => "font-size: 14px; line-height: 16px;"}
-                                                          %strong Запрос коммерческих предложений на закупку
-                                                        %br/
+                                                          %strong= @tender.data_procedure_full_name
+                                                          %br/
                                                         %span{:style => "font-size: 14px; line-height: 16px;"} Начало приема предложений: 26.07.2016 18:38 (Astana)
                                                         %br/
                                                         %span{:style => "font-size: 14px; line-height: 16px;"} Окончание приема предложений: 03.08.2016 10:00 (Astana) 
@@ -287,7 +287,7 @@
                                                       %tr{:style => "vertical-align: top"}
                                                         %td.button{:align => "center", :style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top", :valign => "middle", :width => "100%"}
                                                           /[if mso]
-                                                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://24tender.kz/trade/view/purchase/general.html?id=100828421"
+                                                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#{@tender.data_link}"
                                                             style="
                                                             height:42px;
                                                             v-text-anchor:middle;
@@ -307,7 +307,7 @@
                                                                 %tr{:style => "vertical-align: top"}
                                                                   %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;border-radius: 20px;                   -webkit-border-radius: 20px;                   -moz-border-radius: 20px;                  color: #ffffff;                  background-color: #464F7A;                  padding-top: 5px;                   padding-right: 5px;                  padding-bottom: 5px;                  padding-left: 5px;                  font-family: 'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;text-align: center", :valign => "middle"}
                                                                     / <![endif]
-                                                                    %a{:href => "http://24tender.kz/trade/view/purchase/general.html?id=100828421", :style => "display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;background-color: #464F7A;color: #ffffff", :target => "_blank"}
+                                                                    %a{:href => "#{@tender.data_link}", :style => "display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;background-color: #464F7A;color: #ffffff", :target => "_blank"}
                                                                       %span{:style => "font-size:16px;line-height:32px;"}
                                                                         %span{"data-mce-style" => "font-size: 14px;", :style => "font-size: 14px; line-height: 28px;"} Подробости торгов
                                                                     / [if !mso]><!- -
@@ -384,7 +384,7 @@
                                                       %tr{:style => "vertical-align: top"}
                                                         %td.button{:align => "center", :style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top", :valign => "middle", :width => "100%"}
                                                           /[if mso]
-                                                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://24tender.kz/trade/view/purchase/general.html?id=100828413"
+                                                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#{@tender.data_link}"
                                                             style="
                                                             height:42px;
                                                             v-text-anchor:middle;
@@ -404,7 +404,7 @@
                                                                 %tr{:style => "vertical-align: top"}
                                                                   %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;border-radius: 20px;                   -webkit-border-radius: 20px;                   -moz-border-radius: 20px;                  color: #ffffff;                  background-color: #464F7A;                  padding-top: 5px;                   padding-right: 5px;                  padding-bottom: 5px;                  padding-left: 5px;                  font-family: 'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;text-align: center", :valign => "middle"}
                                                                     / <![endif]
-                                                                    %a{:href => "http://24tender.kz/trade/view/purchase/general.html?id=100828413", :style => "display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;background-color: #464F7A;color: #ffffff", :target => "_blank"}
+                                                                    %a{:href => "#{@tender.data_link}", :style => "display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;background-color: #464F7A;color: #ffffff", :target => "_blank"}
                                                                       %span{:style => "font-size:16px;line-height:32px;"}
                                                                         %span{"data-mce-style" => "font-size: 14px;", :style => "font-size: 14px; line-height: 28px;"} Подробости торгов
                                                                     / [if !mso]><!- -
@@ -477,7 +477,7 @@
                                                       %tr{:style => "vertical-align: top"}
                                                         %td.button{:align => "center", :style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top", :valign => "middle", :width => "100%"}
                                                           /[if mso]
-                                                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://24tender.kz/trade/view/purchase/general.html?id=100828408"
+                                                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#{@tender.data_link}"
                                                             style="
                                                             height:42px;
                                                             v-text-anchor:middle;
@@ -497,7 +497,7 @@
                                                                 %tr{:style => "vertical-align: top"}
                                                                   %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;border-radius: 20px;                   -webkit-border-radius: 20px;                   -moz-border-radius: 20px;                  color: #ffffff;                  background-color: #464F7A;                  padding-top: 5px;                   padding-right: 5px;                  padding-bottom: 5px;                  padding-left: 5px;                  font-family: 'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;text-align: center", :valign => "middle"}
                                                                     / <![endif]
-                                                                    %a{:href => "http://24tender.kz/trade/view/purchase/general.html?id=100828408", :style => "display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;background-color: #464F7A;color: #ffffff", :target => "_blank"}
+                                                                    %a{:href => "#{@tender.data_link}", :style => "display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;background-color: #464F7A;color: #ffffff", :target => "_blank"}
                                                                       %span{:style => "font-size:16px;line-height:32px;"}
                                                                         %span{"data-mce-style" => "font-size: 14px;", :style => "font-size: 14px; line-height: 28px;"} Подробости торгов
                                                                     / [if !mso]><!- -
@@ -586,7 +586,7 @@
                                                       %tr{:style => "vertical-align: top"}
                                                         %td.button{:align => "center", :style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top", :valign => "middle", :width => "100%"}
                                                           /[if mso]
-                                                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://24tender.kz/trade/view/purchase/general.html?id=100828397"
+                                                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#{@tender.data_link}"
                                                             style="
                                                             height:42px;
                                                             v-text-anchor:middle;
@@ -606,7 +606,7 @@
                                                                 %tr{:style => "vertical-align: top"}
                                                                   %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;border-radius: 20px;                   -webkit-border-radius: 20px;                   -moz-border-radius: 20px;                  color: #ffffff;                  background-color: #464F7A;                  padding-top: 5px;                   padding-right: 5px;                  padding-bottom: 5px;                  padding-left: 5px;                  font-family: 'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;text-align: center", :valign => "middle"}
                                                                     / <![endif]
-                                                                    %a{:href => "http://24tender.kz/trade/view/purchase/general.html?id=100828397", :style => "display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;background-color: #464F7A;color: #ffffff", :target => "_blank"}
+                                                                    %a{:href => "#{@tender.data_link}", :style => "display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;background-color: #464F7A;color: #ffffff", :target => "_blank"}
                                                                       %span{:style => "font-size:16px;line-height:32px;"}
                                                                         %span{"data-mce-style" => "font-size: 14px;", :style => "font-size: 14px; line-height: 28px;"} Подробости торгов
                                                                     / [if !mso]><!- -
@@ -701,7 +701,7 @@
                                                       %tr{:style => "vertical-align: top"}
                                                         %td.button{:align => "center", :style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top", :valign => "middle", :width => "100%"}
                                                           /[if mso]
-                                                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://24tender.kz/tariff.html"
+                                                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#{@tender.data_root_link}tariff.html"
                                                             style="
                                                             height:42px;
                                                             v-text-anchor:middle;
@@ -721,7 +721,7 @@
                                                                 %tr{:style => "vertical-align: top"}
                                                                   %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;border-radius: 20px;                   -webkit-border-radius: 20px;                   -moz-border-radius: 20px;                  color: #ffffff;                  background-color: #3AAEE0;                  padding-top: 5px;                   padding-right: 20px;                  padding-bottom: 5px;                  padding-left: 20px;                  font-family: 'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;text-align: center", :valign => "middle"}
                                                                     / <![endif]
-                                                                    %a{:href => "http://24tender.kz/tariff.html", :style => "display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;background-color: #3AAEE0;color: #ffffff", :target => "_blank"}
+                                                                    %a{:href => "#{@tender.data_root_link}tariff.html", :style => "display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;background-color: #3AAEE0;color: #ffffff", :target => "_blank"}
                                                                       %span{:style => "font-size:16px;line-height:32px;"} Тарифы
                                                                     / [if !mso]><!- -
                                                           / <![endif]
@@ -751,7 +751,7 @@
                                                       %tr{:style => "vertical-align: top"}
                                                         %td.button{:align => "center", :style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top", :valign => "middle", :width => "100%"}
                                                           /[if mso]
-                                                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://24tender.kz/etp/registration/registeruser.html"
+                                                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#{@tender.data_root_link}tp/registration/registeruser.html"
                                                             style="
                                                             height:42px;
                                                             v-text-anchor:middle;
@@ -771,7 +771,7 @@
                                                                 %tr{:style => "vertical-align: top"}
                                                                   %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;border-radius: 20px;                   -webkit-border-radius: 20px;                   -moz-border-radius: 20px;                  color: #ffffff;                  background-color: #69AA5E;                  padding-top: 5px;                   padding-right: 20px;                  padding-bottom: 5px;                  padding-left: 20px;                  font-family: 'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;text-align: center", :valign => "middle"}
                                                                     / <![endif]
-                                                                    %a{:href => "http://24tender.kz/etp/registration/registeruser.html", :style => "display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;background-color: #69AA5E;color: #ffffff", :target => "_blank"}
+                                                                    %a{:href => "#{@tender.data_root_link}etp/registration/registeruser.html", :style => "display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;background-color: #69AA5E;color: #ffffff", :target => "_blank"}
                                                                       %span{:style => "font-size:16px;line-height:32px;"} Регистрация
                                                                     / [if !mso]><!- -
                                                           / <![endif]
@@ -801,7 +801,7 @@
                                                       %tr{:style => "vertical-align: top"}
                                                         %td.button{:align => "center", :style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top", :valign => "middle", :width => "100%"}
                                                           /[if mso]
-                                                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="http://24tender.kz/regulations.html"
+                                                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#{@tender.data_root_link}regulations.html"
                                                             style="
                                                             height:42px;
                                                             v-text-anchor:middle;
@@ -821,7 +821,7 @@
                                                                 %tr{:style => "vertical-align: top"}
                                                                   %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;border-radius: 20px;                   -webkit-border-radius: 20px;                   -moz-border-radius: 20px;                  color: #ffffff;                  background-color: #EDAD6A;                  padding-top: 5px;                   padding-right: 20px;                  padding-bottom: 5px;                  padding-left: 20px;                  font-family: 'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;text-align: center", :valign => "middle"}
                                                                     / <![endif]
-                                                                    %a{:href => "http://24tender.kz/regulations.html", :style => "display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;background-color: #EDAD6A;color: #ffffff", :target => "_blank"}
+                                                                    %a{:href => "#{@tender.data_root_link}regulations.html", :style => "display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;background-color: #EDAD6A;color: #ffffff", :target => "_blank"}
                                                                       %span{:style => "font-size:12px;line-height:24px;"}
                                                                         %span{"data-mce-style" => "font-size: 16px; line-height: 28px;", :style => "font-size: 16px; line-height: 32px;"} Регламент
                                                                     / [if !mso]><!- -
@@ -987,10 +987,19 @@
                                                       %p{:style => "margin: 0;font-size: 14px;line-height: 21px;text-align: center"}
                                                         %span{:style => "font-size: 14px; line-height: 21px; color: rgb(153, 153, 153);"}
                                                           Вы получили это сообщение потому что проявили интерес к возможности поставки товаров или услуг для заказчиков ЭТП
-                                                          %a{:href => "http://24tender.ru/", :style => "color:#000000;text-decoration: underline; color: rgb(153, 153, 153);", :target => "_blank"} 24TENDER
+                                                          %a{:href => "#{@tender.data_root_link}", :style => "color:#000000;text-decoration: underline; color: rgb(153, 153, 153);", :target => "_blank"} 24TENDER
+
+
+
                                 /[if (gte mso 9)|(IE)] </td>
                                 /[if (gte mso 9)|(IE)] </td></tr></table>
                 /[if mso]
                   </td></tr></table>
                 /[if (IE)]
                   </td></tr></table>
+
+%br/
+%br/
+%br/
+%br/
+= JSON.pretty_generate(@tender.data)

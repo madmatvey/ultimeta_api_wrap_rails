@@ -1,8 +1,8 @@
 class TenderMailerPreview
   # preview methods should return Mail objects, e.g.:
   def invitation
-    tender = Tender.find_by_data_id(@tender_id).first
-    TenderMailer.invitation(tender)
+    find_tender
+    TenderMailer.invitation(@tender)
   end
 
   def invitation_for_registered_users
@@ -20,7 +20,11 @@ class TenderMailerPreview
   private
 
     def find_tender
-      @tender = Tender.find_by_data_id(@tender_id).first
+      if @tender_id.include?('-')
+        @tender = Tender.find_by_data_id(@tender_id).first
+      else
+        @tender = Tender.find_by_number(@tender_id).first
+      end
     end
   # You can put all your mock helpers in a module
   # or you can use your factories / fabricators, just make sure you are not creating anything
