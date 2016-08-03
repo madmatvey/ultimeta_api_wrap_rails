@@ -86,6 +86,6 @@ class Tender < ActiveRecord::Base
   end
 
   def self.find_by_number(number)
-    Tender.where("data ->> 'Id' LIKE '%:numb%'", numb: number.to_i)
+    Tender.where("data ->> 'Id' ~* ?", '^' + number.to_s + '-\S')
   end
 end
