@@ -82,11 +82,11 @@ class Tender < ActiveRecord::Base
   end
 
   def data_time_start
-    Time.parse(self.data['PurchaseStart'])
+    time_zone(Time.parse(self.data['PurchaseStart']))
   end
 
   def data_time_finish
-    Time.parse(self.data['PurchaseFinishDate'])
+    time_zone(Time.parse(self.data['PurchaseFinishDate']))
   end
 
   def self.find_by_data_id(string)
@@ -96,4 +96,16 @@ class Tender < ActiveRecord::Base
   def self.find_by_number(number)
     Tender.where("data ->> 'Id' ~* ?", '^' + number.to_s + '-\S')
   end
+
+  private
+
+    def time_zone(time)
+      case self.data_country_code
+      when 'kz'
+        ActiveSupport::TimeZone['Astana'].at(time).strftime("%e.%m.%Y %H:%M (Astana)")
+      else
+        ActiveSupport::TimeZone['Moscow'].at(time).strftime("%e.%m.%Y %H:%M (MSK)")
+      end
+    end
+
 end

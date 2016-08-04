@@ -212,9 +212,9 @@
                                                         %span{:style => "font-size: 14px; line-height: 16px;"}
                                                           %strong= @tender.data_procedure_full_name
                                                           %br/
-                                                        %span{:style => "font-size: 14px; line-height: 16px;"} Начало приема предложений: 26.07.2016 18:38 (Astana)
+                                                        %span{:style => "font-size: 14px; line-height: 16px;"}= "Начало приема предложений: #{@tender.data_time_start}"
                                                         %br/
-                                                        %span{:style => "font-size: 14px; line-height: 16px;"} Окончание приема предложений: 03.08.2016 10:00 (Astana) 
+                                                        %span{:style => "font-size: 14px; line-height: 16px;"}= "Окончание приема предложений: #{@tender.data_time_finish}"
                                                         %br/
                                                       %p{:style => "margin: 0;font-size: 12px;line-height: 14px"}
                                                         %span{:style => "font-size: 14px; line-height: 16px;"} Подведение итогов до: 11.08.2016 10:00 (Astana)
