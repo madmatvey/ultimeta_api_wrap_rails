@@ -12,7 +12,7 @@ class Tender < ActiveRecord::Base
   end
 
   def data_root_link
-    URI.join(URI.parse(self.data['Link']), "/").to_s
+    URI.join(data_link, "/").to_s
   end
 
   def data_name
