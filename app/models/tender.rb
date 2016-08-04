@@ -81,6 +81,14 @@ class Tender < ActiveRecord::Base
     end
   end
 
+  def data_time_start
+    Time.parse(self.data['PurchaseStart'])
+  end
+
+  def data_time_finish
+    Time.parse(self.data['PurchaseFinishDate'])
+  end
+
   def self.find_by_data_id(string)
     Tender.where("data -> 'Id' ? :data_id", data_id: string)
   end
