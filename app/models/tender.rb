@@ -82,11 +82,27 @@ class Tender < ActiveRecord::Base
   end
 
   def data_time_start
-    time_zone(Time.parse(self.data['PurchaseStart']))
+    Time.parse(self.data['PurchaseStart'])
+  end
+
+  def time_zone_start
+    time_zone(data_time_start)
   end
 
   def data_time_finish
-    time_zone(Time.parse(self.data['PurchaseFinishDate']))
+    Time.parse(self.data['PurchaseFinishDate'])
+  end
+
+  def time_zone_finish
+    time_zone(data_time_finish)
+  end
+
+  def time_results_till
+    8.business_days.after(data_time_finish)
+  end
+
+  def time_zone_results_till
+    time_zone time_results_till
   end
 
   def self.find_by_data_id(string)

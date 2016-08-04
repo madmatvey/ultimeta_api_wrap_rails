@@ -26,6 +26,9 @@ gem 'hashdiff'
 gem 'mailgun_rails'
 gem 'rails_email_preview', '~> 2.0.1'
 
+gem 'business_time'
+gem 'holidays'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
