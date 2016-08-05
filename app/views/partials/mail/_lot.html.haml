@@ -45,4 +45,7 @@
                             = "Бюджет лота: "
                           = "#{number_to_currency(lot_data['goods']['Price'].to_f, unit: lot_data['Currency'], separator: ",", delimiter: " ", format: "%n %u")}"
                         -else
-                          = "Цена контракта не задана – ждём Ваших предложений!"
+                          -if @tender.data_lots_count == 1
+                            = "Цена контракта не задана – ждём Ваших предложений!"
+                          -else
+                            = "Цена лота не задана – ждём Ваших предложений!"
