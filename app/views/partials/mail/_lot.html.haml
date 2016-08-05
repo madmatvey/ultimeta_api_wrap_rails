@@ -1,6 +1,6 @@
 /[if (gte mso 9)|(IE)] <table width="100%" align="center" bgcolor="transparent" cellpadding="0" cellspacing="0" border="0"><tr>
 /[if (gte mso 9)|(IE)] <td valign="top" width="227">
-.col.num4{:style => "display: inline-block;vertical-align: top;text-align: center;width: 227px"}
+.col.num4{:style => "display: inline-block;vertical-align: top;text-align: center;width: 227px; border-top: 1px dashed #c2c2d6;"}
   %table{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
     %tbody
       %tr{:style => "vertical-align: top"}
@@ -11,10 +11,14 @@
                 %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px"}
                   %div{:style => "color:#555555;line-height:120%;font-family:Verdana, Geneva, sans-serif;"}
                     %div{:style => "font-size:12px;line-height:14px;font-family:Verdana, Geneva, sans-serif;color:#555555;text-align:center;"}
-                      %p{:style => "margin: 0;font-size: 14px;line-height: 17px;text-align: center;"}= "#{@tender.data_1st_lot_info['Name']}"
+                      -if @tender.data_lots_count > 1
+                        %p{:style => "margin: 0;font-size: 12px;line-height: 16px;text-align: center;"}
+                          = "Лот №#{lot_number}"
+                      %p{:style => "margin: 0;font-size: 14px;line-height: 17px;text-align: center;"}
+                        = "#{lot_data['Name']}"
 /[if (gte mso 9)|(IE)] </td>
 /[if (gte mso 9)|(IE)] <td valign="top" width="453">
-.col.num8{:style => "display: inline-block;vertical-align: top;text-align: center;width: 453px"}
+.col.num8{:style => "display: inline-block;vertical-align: top;text-align: center;width: 453px; border-top: 1px dashed #c2c2d6;"}
   %table{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
     %tbody
       %tr{:style => "vertical-align: top"}
@@ -25,9 +29,20 @@
                 %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;padding-top: 5px;padding-right: 5px;padding-bottom: 5px;padding-left: 5px"}
                   %div{:style => "color:#555555;line-height:120%;font-family:'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;"}
                     %div{:style => "font-size:14px;line-height:14px;color:#555555;font-family:'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;text-align:left;"}
-                      %p{:style => "margin: 0;font-size: 14px;line-height: 14px;text-align: left"}= "#{@tender.data_1st_lot_info['goods']['Characteristic']}"
+                      %p{:style => "margin: 0;font-size: 14px;line-height: 14px;text-align: left"}
+                        -if lot_data['goods']['Characteristic']!=nil
+                          = "#{lot_data['goods']['Characteristic']}"
+                        -else
+                          = "Вы можете направить"
+                          %a{:href => "#{@tender.data_link}", :target => "_blank"}= "Запрос разъяснений"
+                          = "заказчику для уточнения информации"
                       %br/
-                      -if @tender.data_1st_lot_info['goods']['Price'] != nil
-                        %span{:style => "color: rgb(153, 51, 0); font-size: 14px; line-height: 14px;"}= "Бюджет закупки: #{number_to_currency(@tender.data_1st_lot_info['goods']['Price'].to_f, unit: @tender.data_1st_lot_info['Currency'], separator: ",", delimiter: " ", format: "%n %u")}"
-                      -else
-                        %span{:style => "color: rgb(153, 51, 0); font-size: 14px; line-height: 14px;"}= "Цена контракта не задана – ждём Ваших предложений!"
+                      %span{:style => "color: rgb(153, 51, 0); font-size: 14px; line-height: 14px;"}
+                        -if lot_data['goods']['Price'] != nil
+                          -if @tender.data_lots_count == 1
+                            = "Бюджет закупки: "
+                          -else
+                            = "Бюджет лота: "
+                          = "#{number_to_currency(lot_data['goods']['Price'].to_f, unit: lot_data['Currency'], separator: ",", delimiter: " ", format: "%n %u")}"
+                        -else
+                          = "Цена контракта не задана – ждём Ваших предложений!"

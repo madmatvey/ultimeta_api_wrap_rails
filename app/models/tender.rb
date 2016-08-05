@@ -28,10 +28,16 @@ class Tender < ActiveRecord::Base
   end
 
   def data_1st_lot_info
+    self.data_lot_info
+  end
+
+  def data_lot_info(number = 0)
     if data_lots_count > 1
-      self.data['lots']['lot'][0]
-    else
+      self.data['lots']['lot'][number]
+    elsif number == 0
       self.data['lots']['lot']
+    else
+      nil
     end
   end
 
