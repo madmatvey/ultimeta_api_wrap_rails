@@ -113,6 +113,9 @@ class Tender < ActiveRecord::Base
     Tender.where("data ->> 'Id' ~* ?", '^' + number.to_s + '-\S')
   end
 
+
+
+
   private
 
     def time_zone(time)

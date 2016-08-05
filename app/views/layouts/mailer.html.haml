@@ -212,12 +212,12 @@
                                                         %span{:style => "font-size: 14px; line-height: 16px;"}
                                                           %strong= @tender.data_procedure_full_name
                                                           %br/
-                                                        %span{:style => "font-size: 14px; line-height: 16px;"}= "Начало приема предложений: #{@tender.data_time_start}"
+                                                        %span{:style => "font-size: 14px; line-height: 16px;"}= "Начало приема предложений: #{@tender.time_zone_start}"
                                                         %br/
-                                                        %span{:style => "font-size: 14px; line-height: 16px;"}= "Окончание приема предложений: #{@tender.data_time_finish}"
+                                                        %span{:style => "font-size: 14px; line-height: 16px;"}= "Окончание приема предложений: #{@tender.time_zone_finish}"
                                                         %br/
                                                       %p{:style => "margin: 0;font-size: 12px;line-height: 14px"}
-                                                        %span{:style => "font-size: 14px; line-height: 16px;"} Подведение итогов до: 11.08.2016 10:00 (Astana)
+                                                        %span{:style => "font-size: 14px; line-height: 16px;"}= "Подведение итогов до: #{@tender.time_zone_results_till}"
                                 /[if (gte mso 9)|(IE)] </td>
                                 /[if (gte mso 9)|(IE)] </td></tr></table>
                 /[if mso]
@@ -242,384 +242,51 @@
                           %tbody
                             %tr{:style => "vertical-align: top"}
                               %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;text-align: center;font-size: 0"}
-                                /[if (gte mso 9)|(IE)] <table width="100%" align="center" bgcolor="transparent" cellpadding="0" cellspacing="0" border="0"><tr>
-                                /[if (gte mso 9)|(IE)] <td valign="top" width="227">
-                                .col.num4{:style => "display: inline-block;vertical-align: top;text-align: center;width: 227px"}
-                                  %table{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
-                                    %tbody
-                                      %tr{:style => "vertical-align: top"}
-                                        %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;background-color: transparent;padding-top: 10px;padding-right: 5px;padding-bottom: 5px;padding-left: 5px;border-top: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-left: 0px solid transparent"}
-                                          %table{:cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
-                                            %tbody
-                                              %tr{:style => "vertical-align: top"}
-                                                %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;padding-top: 0px;padding-right: 0px;padding-bottom: 0px;padding-left: 0px"}
-                                                  %div{:style => "color:#555555;line-height:120%;font-family:Verdana, Geneva, sans-serif;"}
-                                                    %div{:style => "font-size:12px;line-height:14px;font-family:Verdana, Geneva, sans-serif;color:#555555;text-align:left;"}
-                                                      %p{:style => "margin: 0;font-size: 14px;line-height: 17px;text-align: left"} Информация о лотах по торгам №233-ЗКП
-                                /[if (gte mso 9)|(IE)] </td>
-                                /[if (gte mso 9)|(IE)] <td valign="top" width="453">
-                                .col.num8{:style => "display: inline-block;vertical-align: top;text-align: center;width: 453px"}
-                                  %table{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
-                                    %tbody
-                                      %tr{:style => "vertical-align: top"}
-                                        %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;background-color: transparent;padding-top: 5px;padding-right: 5px;padding-bottom: 5px;padding-left: 5px;border-top: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-left: 0px solid transparent"}
-                                          %table{:cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
-                                            %tbody
-                                              %tr{:style => "vertical-align: top"}
-                                                %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;padding-top: 5px;padding-right: 5px;padding-bottom: 5px;padding-left: 5px"}
-                                                  %div{:style => "color:#555555;line-height:120%;font-family:'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;"}
-                                                    %div{:style => "font-size:12px;line-height:14px;color:#555555;font-family:'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;text-align:left;"}
-                                                      %p{:style => "margin: 0;font-size: 12px;line-height: 14px;text-align: left"}
-                                                        Лот №1. костюм рабочий х/б
-                                                        %span{:style => "color: rgb(153, 51, 0); font-size: 12px; line-height: 14px;"} 583 000,00 KZT
-                                                        = succeed "\u{41b}\u{43e}\u{442}" do
-                                                          %br/
-                                                        %span{:style => "color: rgb(153, 51, 0); font-size: 12px; line-height: 14px;"} 198 000,00 KZT
-                                                        = succeed "\u{41b}\u{43e}\u{442}" do
-                                                          %br/
-                                                        %span{:style => "color: rgb(153, 51, 0); font-size: 12px; line-height: 14px;"} 1 404 000,00 KZT
-                                          %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
-                                            %tbody
-                                              %tr{:style => "vertical-align: top"}
-                                                %td.button-container{:align => "center", :style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;padding-top: 10px;padding-right: 5px;padding-bottom: 10px;padding-left: 5px"}
-                                                  %table{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
+                                = render "partials/mail/lot"
+                                %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
+                                  %tbody
+                                    %tr{:style => "vertical-align: top"}
+                                      %td.button-container{:align => "center", :style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;padding-top: 10px;padding-right: 5px;padding-bottom: 10px;padding-left: 5px"}
+                                        %table{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
+                                          %tbody
+                                            %tr{:style => "vertical-align: top"}
+                                              %td.button{:align => "center", :style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top", :valign => "middle", :width => "100%"}
+                                                /[if mso]
+                                                  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#{@tender.data_link}"
+                                                  style="
+                                                  height:42px;
+                                                  v-text-anchor:middle;
+                                                  width:223px;"
+                                                  arcsize="48%"
+                                                  strokecolor="#464F7A"
+                                                  fillcolor="#464F7A" >
+                                                  <w:anchorlock/>
+                                                  <center
+                                                  style="color:#ffffff;
+                                                  font-family:'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
+                                                  font-size:16px;">
+                                                / [if !mso]><!- -
+                                                %div{:align => "center", :style => "display: inline-block;\n              border-radius: 20px; \n              -webkit-border-radius: 20px; \n              -moz-border-radius: 20px; \n              max-width: 50%;\n              width: 100%;\n              border-top: 0px solid transparent;\n              border-right: 0px solid transparent;\n              border-bottom: 0px solid transparent;\n              border-left: 0px solid transparent;"}
+                                                  %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top;height: 42", :width => "100%"}
                                                     %tbody
                                                       %tr{:style => "vertical-align: top"}
-                                                        %td.button{:align => "center", :style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top", :valign => "middle", :width => "100%"}
-                                                          /[if mso]
-                                                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#{@tender.data_link}"
-                                                            style="
-                                                            height:42px;
-                                                            v-text-anchor:middle;
-                                                            width:223px;"
-                                                            arcsize="48%"
-                                                            strokecolor="#464F7A"
-                                                            fillcolor="#464F7A" >
-                                                            <w:anchorlock/>
-                                                            <center
-                                                            style="color:#ffffff;
-                                                            font-family:'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
-                                                            font-size:16px;">
-                                                          / [if !mso]><!- -
-                                                          %div{:align => "center", :style => "display: inline-block;\n              border-radius: 20px; \n              -webkit-border-radius: 20px; \n              -moz-border-radius: 20px; \n              max-width: 50%;\n              width: 100%;\n              border-top: 0px solid transparent;\n              border-right: 0px solid transparent;\n              border-bottom: 0px solid transparent;\n              border-left: 0px solid transparent;"}
-                                                            %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top;height: 42", :width => "100%"}
-                                                              %tbody
-                                                                %tr{:style => "vertical-align: top"}
-                                                                  %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;border-radius: 20px;                   -webkit-border-radius: 20px;                   -moz-border-radius: 20px;                  color: #ffffff;                  background-color: #464F7A;                  padding-top: 5px;                   padding-right: 5px;                  padding-bottom: 5px;                  padding-left: 5px;                  font-family: 'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;text-align: center", :valign => "middle"}
-                                                                    / <![endif]
-                                                                    %a{:href => "#{@tender.data_link}", :style => "display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;background-color: #464F7A;color: #ffffff", :target => "_blank"}
-                                                                      %span{:style => "font-size:16px;line-height:32px;"}
-                                                                        %span{"data-mce-style" => "font-size: 14px;", :style => "font-size: 14px; line-height: 28px;"} Подробости торгов
-                                                                    / [if !mso]><!- -
+                                                        %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;border-radius: 20px;                   -webkit-border-radius: 20px;                   -moz-border-radius: 20px;                  color: #ffffff;                  background-color: #464F7A;                  padding-top: 5px;                   padding-right: 5px;                  padding-bottom: 5px;                  padding-left: 5px;                  font-family: 'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;text-align: center", :valign => "middle"}
                                                           / <![endif]
-                                                          /[if mso]
-                                                            </center>
-                                                            </v:roundrect>
+                                                          %a{:href => "#{@tender.data_link}", :style => "display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;background-color: #464F7A;color: #ffffff", :target => "_blank"}
+                                                            %span{:style => "font-size:16px;line-height:32px;"}
+                                                              %span{"data-mce-style" => "font-size: 14px;", :style => "font-size: 14px; line-height: 28px;"} Подробости торгов
+                                                          / [if !mso]><!- -
+                                                / <![endif]
+                                                /[if mso]
+                                                  </center>
+                                                  </v:roundrect>
                                 /[if (gte mso 9)|(IE)] </td>
                                 /[if (gte mso 9)|(IE)] </td></tr></table>
                 /[if mso]
                   </td></tr></table>
                 /[if (IE)]
                   </td></tr></table>
-        %table{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top;background-color: transparent", :width => "100%"}
-          %tbody
-            %tr{:style => "vertical-align: top"}
-              %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top", :width => "100%"}
-                /[if gte mso 9]
-                  <table id="outlookholder" border="0" cellspacing="0" cellpadding="0" align="center"><tr><td>
-                /[if (IE)]
-                  <table width="680" align="center" cellpadding="0" cellspacing="0" border="0">
-                  <tr>
-                  <td>
-                %table.container{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top;max-width: 680px;margin: 0 auto;text-align: inherit", :width => "100%"}
-                  %tbody
-                    %tr{:style => "vertical-align: top"}
-                      %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top", :width => "100%"}
-                        %table.block-grid.mixed-two-up{:bgcolor => "transparent", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top;width: 100%;max-width: 680px;color: #333;background-color: transparent", :width => "100%"}
-                          %tbody
-                            %tr{:style => "vertical-align: top"}
-                              %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;text-align: center;font-size: 0"}
-                                /[if (gte mso 9)|(IE)] <table width="100%" align="center" bgcolor="transparent" cellpadding="0" cellspacing="0" border="0"><tr>
-                                /[if (gte mso 9)|(IE)] <td valign="top" width="227">
-                                .col.num4{:style => "display: inline-block;vertical-align: top;text-align: center;width: 227px"}
-                                  %table{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
-                                    %tbody
-                                      %tr{:style => "vertical-align: top"}
-                                        %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;background-color: transparent;padding-top: 10px;padding-right: 5px;padding-bottom: 5px;padding-left: 5px;border-top: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-left: 0px solid transparent"}
-                                          %table{:cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
-                                            %tbody
-                                              %tr{:style => "vertical-align: top"}
-                                                %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;padding-top: 10px;padding-right: 10px;padding-bottom: 10px;padding-left: 10px"}
-                                                  %div{:style => "color:#555555;line-height:120%;font-family:Verdana, Geneva, sans-serif;"}
-                                                    %div{:style => "font-size:12px;line-height:14px;font-family:Verdana, Geneva, sans-serif;color:#555555;text-align:left;"}
-                                                      %p{:style => "margin: 0;font-size: 14px;line-height: 17px;text-align: left"} Информация о лотах по торгам №232-ЗКП
-                                /[if (gte mso 9)|(IE)] </td>
-                                /[if (gte mso 9)|(IE)] <td valign="top" width="453">
-                                .col.num8{:style => "display: inline-block;vertical-align: top;text-align: center;width: 453px"}
-                                  %table{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
-                                    %tbody
-                                      %tr{:style => "vertical-align: top"}
-                                        %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;background-color: transparent;padding-top: 5px;padding-right: 5px;padding-bottom: 5px;padding-left: 5px;border-top: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-left: 0px solid transparent"}
-                                          %table{:cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
-                                            %tbody
-                                              %tr{:style => "vertical-align: top"}
-                                                %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;padding-top: 5px;padding-right: 5px;padding-bottom: 5px;padding-left: 5px"}
-                                                  %div{:style => "color:#555555;line-height:120%;font-family:'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;"}
-                                                    %div{:style => "font-size:12px;line-height:14px;color:#555555;font-family:'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;text-align:left;"}
-                                                      %p{:style => "margin: 0;font-size: 12px;line-height: 14px"}
-                                                        Лот №1. спецобувь
-                                                        %span{:style => "color: rgb(153, 51, 0); font-size: 12px; line-height: 14px;"} 375 000,00 KZT
-                                                        = succeed "\u{41b}\u{43e}\u{442}" do
-                                                          %br/
-                                                        %span{:style => "color: rgb(153, 51, 0); font-size: 12px; line-height: 14px;"} 170 000,00 KZT
-                                                        = succeed "\u{41b}\u{43e}\u{442}" do
-                                                          %br/
-                                                        %span{:style => "color: rgb(153, 51, 0); font-size: 12px; line-height: 14px;"} 50 000,00 KZT
-                                          %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
-                                            %tbody
-                                              %tr{:style => "vertical-align: top"}
-                                                %td.button-container{:align => "center", :style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;padding-top: 10px;padding-right: 5px;padding-bottom: 10px;padding-left: 5px"}
-                                                  %table{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
-                                                    %tbody
-                                                      %tr{:style => "vertical-align: top"}
-                                                        %td.button{:align => "center", :style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top", :valign => "middle", :width => "100%"}
-                                                          /[if mso]
-                                                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#{@tender.data_link}"
-                                                            style="
-                                                            height:42px;
-                                                            v-text-anchor:middle;
-                                                            width:223px;"
-                                                            arcsize="48%"
-                                                            strokecolor="#464F7A"
-                                                            fillcolor="#464F7A" >
-                                                            <w:anchorlock/>
-                                                            <center
-                                                            style="color:#ffffff;
-                                                            font-family:'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
-                                                            font-size:16px;">
-                                                          / [if !mso]><!- -
-                                                          %div{:align => "center", :style => "display: inline-block;\n              border-radius: 20px; \n              -webkit-border-radius: 20px; \n              -moz-border-radius: 20px; \n              max-width: 50%;\n              width: 100%;\n              border-top: 0px solid transparent;\n              border-right: 0px solid transparent;\n              border-bottom: 0px solid transparent;\n              border-left: 0px solid transparent;"}
-                                                            %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top;height: 42", :width => "100%"}
-                                                              %tbody
-                                                                %tr{:style => "vertical-align: top"}
-                                                                  %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;border-radius: 20px;                   -webkit-border-radius: 20px;                   -moz-border-radius: 20px;                  color: #ffffff;                  background-color: #464F7A;                  padding-top: 5px;                   padding-right: 5px;                  padding-bottom: 5px;                  padding-left: 5px;                  font-family: 'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;text-align: center", :valign => "middle"}
-                                                                    / <![endif]
-                                                                    %a{:href => "#{@tender.data_link}", :style => "display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;background-color: #464F7A;color: #ffffff", :target => "_blank"}
-                                                                      %span{:style => "font-size:16px;line-height:32px;"}
-                                                                        %span{"data-mce-style" => "font-size: 14px;", :style => "font-size: 14px; line-height: 28px;"} Подробости торгов
-                                                                    / [if !mso]><!- -
-                                                          / <![endif]
-                                                          /[if mso]
-                                                            </center>
-                                                            </v:roundrect>
-                                /[if (gte mso 9)|(IE)] </td>
-                                /[if (gte mso 9)|(IE)] </td></tr></table>
-                /[if mso]
-                  </td></tr></table>
-                /[if (IE)]
-                  </td></tr></table>
-        %table{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top;background-color: transparent", :width => "100%"}
-          %tbody
-            %tr{:style => "vertical-align: top"}
-              %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top", :width => "100%"}
-                /[if gte mso 9]
-                  <table id="outlookholder" border="0" cellspacing="0" cellpadding="0" align="center"><tr><td>
-                /[if (IE)]
-                  <table width="680" align="center" cellpadding="0" cellspacing="0" border="0">
-                  <tr>
-                  <td>
-                %table.container{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top;max-width: 680px;margin: 0 auto;text-align: inherit", :width => "100%"}
-                  %tbody
-                    %tr{:style => "vertical-align: top"}
-                      %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top", :width => "100%"}
-                        %table.block-grid.mixed-two-up{:bgcolor => "transparent", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top;width: 100%;max-width: 680px;color: #333;background-color: transparent", :width => "100%"}
-                          %tbody
-                            %tr{:style => "vertical-align: top"}
-                              %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;text-align: center;font-size: 0"}
-                                /[if (gte mso 9)|(IE)] <table width="100%" align="center" bgcolor="transparent" cellpadding="0" cellspacing="0" border="0"><tr>
-                                /[if (gte mso 9)|(IE)] <td valign="top" width="227">
-                                .col.num4{:style => "display: inline-block;vertical-align: top;text-align: center;width: 227px"}
-                                  %table{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
-                                    %tbody
-                                      %tr{:style => "vertical-align: top"}
-                                        %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;background-color: transparent;padding-top: 10px;padding-right: 5px;padding-bottom: 5px;padding-left: 5px;border-top: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-left: 0px solid transparent"}
-                                          %table{:cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
-                                            %tbody
-                                              %tr{:style => "vertical-align: top"}
-                                                %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;padding-top: 10px;padding-right: 10px;padding-bottom: 10px;padding-left: 10px"}
-                                                  %div{:style => "color:#555555;line-height:120%;font-family:Verdana, Geneva, sans-serif;"}
-                                                    %div{:style => "font-size:12px;line-height:14px;font-family:Verdana, Geneva, sans-serif;color:#555555;text-align:left;"}
-                                                      %p{:style => "margin: 0;font-size: 14px;line-height: 17px;text-align: left"} Информация о лотах по торгам №231-ЗКП
-                                /[if (gte mso 9)|(IE)] </td>
-                                /[if (gte mso 9)|(IE)] <td valign="top" width="453">
-                                .col.num8{:style => "display: inline-block;vertical-align: top;text-align: center;width: 453px"}
-                                  %table{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
-                                    %tbody
-                                      %tr{:style => "vertical-align: top"}
-                                        %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;background-color: transparent;padding-top: 5px;padding-right: 5px;padding-bottom: 5px;padding-left: 5px;border-top: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-left: 0px solid transparent"}
-                                          %table{:cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
-                                            %tbody
-                                              %tr{:style => "vertical-align: top"}
-                                                %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;padding-top: 5px;padding-right: 5px;padding-bottom: 5px;padding-left: 5px"}
-                                                  %div{:style => "color:#555555;line-height:120%;font-family:'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;"}
-                                                    %div{:style => "font-size:12px;line-height:14px;color:#555555;font-family:'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;text-align:left;"}
-                                                      %p{:style => "margin: 0;font-size: 12px;line-height: 14px"} Лот №1. респираторы ватно-марлевые в количестве 15 000 тыс.
-                                                      %p{:style => "margin: 0;font-size: 12px;line-height: 14px"}
-                                                        ежемесячно 
-                                                        %span{:style => "color: rgb(153, 51, 0); font-size: 12px; line-height: 14px;"} 900 000,00 KZT
-                                                        %br/
-                                          %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
-                                            %tbody
-                                              %tr{:style => "vertical-align: top"}
-                                                %td.button-container{:align => "center", :style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;padding-top: 10px;padding-right: 5px;padding-bottom: 10px;padding-left: 5px"}
-                                                  %table{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
-                                                    %tbody
-                                                      %tr{:style => "vertical-align: top"}
-                                                        %td.button{:align => "center", :style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top", :valign => "middle", :width => "100%"}
-                                                          /[if mso]
-                                                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#{@tender.data_link}"
-                                                            style="
-                                                            height:42px;
-                                                            v-text-anchor:middle;
-                                                            width:223px;"
-                                                            arcsize="48%"
-                                                            strokecolor="#464F7A"
-                                                            fillcolor="#464F7A" >
-                                                            <w:anchorlock/>
-                                                            <center
-                                                            style="color:#ffffff;
-                                                            font-family:'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
-                                                            font-size:16px;">
-                                                          / [if !mso]><!- -
-                                                          %div{:align => "center", :style => "display: inline-block;\n              border-radius: 20px; \n              -webkit-border-radius: 20px; \n              -moz-border-radius: 20px; \n              max-width: 50%;\n              width: 100%;\n              border-top: 0px solid transparent;\n              border-right: 0px solid transparent;\n              border-bottom: 0px solid transparent;\n              border-left: 0px solid transparent;"}
-                                                            %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top;height: 42", :width => "100%"}
-                                                              %tbody
-                                                                %tr{:style => "vertical-align: top"}
-                                                                  %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;border-radius: 20px;                   -webkit-border-radius: 20px;                   -moz-border-radius: 20px;                  color: #ffffff;                  background-color: #464F7A;                  padding-top: 5px;                   padding-right: 5px;                  padding-bottom: 5px;                  padding-left: 5px;                  font-family: 'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;text-align: center", :valign => "middle"}
-                                                                    / <![endif]
-                                                                    %a{:href => "#{@tender.data_link}", :style => "display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;background-color: #464F7A;color: #ffffff", :target => "_blank"}
-                                                                      %span{:style => "font-size:16px;line-height:32px;"}
-                                                                        %span{"data-mce-style" => "font-size: 14px;", :style => "font-size: 14px; line-height: 28px;"} Подробости торгов
-                                                                    / [if !mso]><!- -
-                                                          / <![endif]
-                                                          /[if mso]
-                                                            </center>
-                                                            </v:roundrect>
-                                /[if (gte mso 9)|(IE)] </td>
-                                /[if (gte mso 9)|(IE)] </td></tr></table>
-                /[if mso]
-                  </td></tr></table>
-                /[if (IE)]
-                  </td></tr></table>
-        %table{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top;background-color: transparent", :width => "100%"}
-          %tbody
-            %tr{:style => "vertical-align: top"}
-              %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top", :width => "100%"}
-                /[if gte mso 9]
-                  <table id="outlookholder" border="0" cellspacing="0" cellpadding="0" align="center"><tr><td>
-                /[if (IE)]
-                  <table width="680" align="center" cellpadding="0" cellspacing="0" border="0">
-                  <tr>
-                  <td>
-                %table.container{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top;max-width: 680px;margin: 0 auto;text-align: inherit", :width => "100%"}
-                  %tbody
-                    %tr{:style => "vertical-align: top"}
-                      %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top", :width => "100%"}
-                        %table.block-grid.mixed-two-up{:bgcolor => "transparent", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top;width: 100%;max-width: 680px;color: #333;background-color: transparent", :width => "100%"}
-                          %tbody
-                            %tr{:style => "vertical-align: top"}
-                              %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;text-align: center;font-size: 0"}
-                                /[if (gte mso 9)|(IE)] <table width="100%" align="center" bgcolor="transparent" cellpadding="0" cellspacing="0" border="0"><tr>
-                                /[if (gte mso 9)|(IE)] <td valign="top" width="227">
-                                .col.num4{:style => "display: inline-block;vertical-align: top;text-align: center;width: 227px"}
-                                  %table{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
-                                    %tbody
-                                      %tr{:style => "vertical-align: top"}
-                                        %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;background-color: transparent;padding-top: 10px;padding-right: 5px;padding-bottom: 5px;padding-left: 5px;border-top: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-left: 0px solid transparent"}
-                                          %table{:cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
-                                            %tbody
-                                              %tr{:style => "vertical-align: top"}
-                                                %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;padding-top: 10px;padding-right: 10px;padding-bottom: 10px;padding-left: 10px"}
-                                                  %div{:style => "color:#555555;line-height:120%;font-family:Verdana, Geneva, sans-serif;"}
-                                                    %div{:style => "font-size:12px;line-height:14px;font-family:Verdana, Geneva, sans-serif;color:#555555;text-align:left;"}
-                                                      %p{:style => "margin: 0;font-size: 14px;line-height: 17px;text-align: left"} Информация о лотах по торгам №230-ЗКП
-                                /[if (gte mso 9)|(IE)] </td>
-                                /[if (gte mso 9)|(IE)] <td valign="top" width="453">
-                                .col.num8{:style => "display: inline-block;vertical-align: top;text-align: center;width: 453px"}
-                                  %table{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
-                                    %tbody
-                                      %tr{:style => "vertical-align: top"}
-                                        %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;background-color: transparent;padding-top: 5px;padding-right: 5px;padding-bottom: 5px;padding-left: 5px;border-top: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-left: 0px solid transparent"}
-                                          %table{:cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
-                                            %tbody
-                                              %tr{:style => "vertical-align: top"}
-                                                %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;padding-top: 5px;padding-right: 5px;padding-bottom: 5px;padding-left: 5px"}
-                                                  %div{:style => "color:#555555;line-height:120%;font-family:'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;"}
-                                                    %div{:style => "font-size:12px;line-height:14px;color:#555555;font-family:'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;text-align:left;"}
-                                                      %p{:style => "margin: 0;font-size: 12px;line-height: 14px"}
-                                                        Лот №1. рукавицы с двойной ладонью
-                                                        %span{:style => "color: rgb(153, 51, 0); font-size: 12px; line-height: 14px;"} 510 000,00 KZT
-                                                        = succeed "\u{41b}\u{43e}\u{442}" do
-                                                          %br/
-                                                        %span{:style => "color: rgb(153, 51, 0); font-size: 12px; line-height: 14px;"} 247 500,00 KZT
-                                                        = succeed "\u{41b}\u{43e}\u{442}" do
-                                                          %br/
-                                                        %span{:style => "color: rgb(153, 51, 0); font-size: 12px; line-height: 14px;"} 425 000,00 KZT
-                                                        = succeed "\u{41b}\u{43e}\u{442}" do
-                                                          %br/
-                                                        %span{:style => "color: rgb(153, 51, 0); font-size: 12px; line-height: 14px;"} 540 000,00 KZT
-                                                        = succeed "\u{41b}\u{43e}\u{442}" do
-                                                          %br/
-                                                        %span{:style => "color: rgb(153, 51, 0); font-size: 12px; line-height: 14px;"} 180 000,00 KZT
-                                                        = succeed "\u{41b}\u{43e}\u{442}" do
-                                                          %br/
-                                                        %span{:style => "color: rgb(153, 51, 0); font-size: 12px; line-height: 14px;"} 22 500,00 KZT
-                                                        = succeed "\u{41b}\u{43e}\u{442}" do
-                                                          %br/
-                                                        %span{:style => "color: rgb(153, 51, 0); font-size: 12px; line-height: 14px;"} 380 000,00 KZT
-                                          %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
-                                            %tbody
-                                              %tr{:style => "vertical-align: top"}
-                                                %td.button-container{:align => "center", :style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;padding-top: 10px;padding-right: 5px;padding-bottom: 10px;padding-left: 5px"}
-                                                  %table{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
-                                                    %tbody
-                                                      %tr{:style => "vertical-align: top"}
-                                                        %td.button{:align => "center", :style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top", :valign => "middle", :width => "100%"}
-                                                          /[if mso]
-                                                            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#{@tender.data_link}"
-                                                            style="
-                                                            height:42px;
-                                                            v-text-anchor:middle;
-                                                            width:223px;"
-                                                            arcsize="48%"
-                                                            strokecolor="#464F7A"
-                                                            fillcolor="#464F7A" >
-                                                            <w:anchorlock/>
-                                                            <center
-                                                            style="color:#ffffff;
-                                                            font-family:'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
-                                                            font-size:16px;">
-                                                          / [if !mso]><!- -
-                                                          %div{:align => "center", :style => "display: inline-block;\n              border-radius: 20px; \n              -webkit-border-radius: 20px; \n              -moz-border-radius: 20px; \n              max-width: 50%;\n              width: 100%;\n              border-top: 0px solid transparent;\n              border-right: 0px solid transparent;\n              border-bottom: 0px solid transparent;\n              border-left: 0px solid transparent;"}
-                                                            %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top;height: 42", :width => "100%"}
-                                                              %tbody
-                                                                %tr{:style => "vertical-align: top"}
-                                                                  %td{:style => "word-break: break-word;border-collapse: collapse !important;vertical-align: top;border-radius: 20px;                   -webkit-border-radius: 20px;                   -moz-border-radius: 20px;                  color: #ffffff;                  background-color: #464F7A;                  padding-top: 5px;                   padding-right: 5px;                  padding-bottom: 5px;                  padding-left: 5px;                  font-family: 'Montserrat', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;text-align: center", :valign => "middle"}
-                                                                    / <![endif]
-                                                                    %a{:href => "#{@tender.data_link}", :style => "display: inline-block;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;background-color: #464F7A;color: #ffffff", :target => "_blank"}
-                                                                      %span{:style => "font-size:16px;line-height:32px;"}
-                                                                        %span{"data-mce-style" => "font-size: 14px;", :style => "font-size: 14px; line-height: 28px;"} Подробости торгов
-                                                                    / [if !mso]><!- -
-                                                          / <![endif]
-                                                          /[if mso]
-                                                            </center>
-                                                            </v:roundrect>
-                                /[if (gte mso 9)|(IE)] </td>
-                                /[if (gte mso 9)|(IE)] </td></tr></table>
-                /[if mso]
-                  </td></tr></table>
-                /[if (IE)]
-                  </td></tr></table>
+
         %table{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top;background-color: #ffffff", :width => "100%"}
           %tbody
             %tr{:style => "vertical-align: top"}
