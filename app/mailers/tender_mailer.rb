@@ -1,13 +1,14 @@
 class TenderMailer < ApplicationMailer
   default from: 'no-reply@24tender.ru'
 
-  def invitation(tender = nil, lot_arr)
+  def invitation(tender = nil, lot_arr, manager_pic)
     @tender = tender
     if @tender == nil
         @tender = tender_not_find
     end
     @url  = 'http://example.com/login'
     @lot_arr = lot_arr
+    @manager_pic = manager_pic
     mail(to: "e_leontiev@24tender.ru", subject: 'Test Invites to Tenders')
   end
 

@@ -2,7 +2,7 @@ class TenderMailerPreview
   # preview methods should return Mail objects, e.g.:
   def invitation
     find_tender
-    TenderMailer.invitation(@tender,@lot_arr)
+    TenderMailer.invitation(@tender,@lot_arr,@manager_pic)
   end
 
   def invitation_for_registered_users
@@ -27,6 +27,7 @@ class TenderMailerPreview
       end
       @lot_arr||=[1,2,3] # по умолчанию три первых лота
       @lot_arr.sort!.uniq!
+      @manager_pic = Amorail.properties.data['users'][2]['photo_url']
     end
   # You can put all your mock helpers in a module
   # or you can use your factories / fabricators, just make sure you are not creating anything
