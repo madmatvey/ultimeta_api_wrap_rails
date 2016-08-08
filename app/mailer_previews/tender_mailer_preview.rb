@@ -26,6 +26,7 @@ class TenderMailerPreview
         @tender = Tender.find_by_number(@tender_id).first
       end
       @lot_arr||=[1,2,3] # по умолчанию три первых лота
+      @lot_arr.sort!.uniq!
     end
   # You can put all your mock helpers in a module
   # or you can use your factories / fabricators, just make sure you are not creating anything

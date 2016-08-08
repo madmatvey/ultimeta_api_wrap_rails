@@ -7,7 +7,7 @@ class TenderMailer < ApplicationMailer
         @tender = tender_not_find
     end
     @url  = 'http://example.com/login'
-    @lot_arr = lot_arr.sort!.uniq!
+    @lot_arr = lot_arr
     mail(to: "e_leontiev@24tender.ru", subject: 'Test Invites to Tenders')
   end
 
