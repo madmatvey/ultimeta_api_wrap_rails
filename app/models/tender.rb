@@ -111,6 +111,16 @@ class Tender < ActiveRecord::Base
     time_zone time_results_till
   end
 
+  def data_sum_of_lots_money
+    sum = 0
+    i = 0
+    while i < data_lots_count
+      sum += data_lot_info(i)['goods']['Price'].to_f if data_lot_info(i)['goods']['Price'] != nil
+      i += 1
+    end
+    sum
+  end
+
   def self.find_by_data_id(string)
     Tender.where("data -> 'Id' ? :data_id", data_id: string)
   end

@@ -251,7 +251,8 @@
                                   = render partial: "partials/mail/lot", locals: {lot_data: @tender.data_lot_info(@lot_arr[i].to_i-1), lot_number: @lot_arr[i].to_i }
                                   - i+=1
 
-
+                                - if i < @tender.data_lots_count
+                                  = render partial: "partials/mail/lots_overall"
 
                                 %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-spacing: 0;border-collapse: collapse;vertical-align: top", :width => "100%"}
                                   %tbody
