@@ -1,6 +1,7 @@
 .container
   %h1="Не закрытые процедуры (#{@tenders.size})"
   .table-responsive
+    =link_to "Текущие процедуры", tenders_path, class: "btn btn-primary"
     %table.table
       %thead
         %tr
@@ -21,5 +22,4 @@
               -else
                 ="#{tender.time_zone_results_till} осталось #{-days_to_go} дней!"
             %td= tender.data_customer_name
-
-%br
+    %br

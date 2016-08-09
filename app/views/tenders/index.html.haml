@@ -1,5 +1,5 @@
 .container
-  %h1 Текущие закупки
+  %h1= "Текущие закупки (#{@tenders.size})"
   .table-responsive
     %table.table
       %thead
@@ -15,4 +15,5 @@
             %td= link_to tender.data_name, rails_email_preview.rep_email_path(preview_id: 'tender_mailer_preview-invitation', tender_id: tender.data_id)
             %td= tender.data_customer_name
 
-%br
+    %br
+    =link_to "Не закрытые процедуры", unfinished_path, class: "btn btn-danger"
