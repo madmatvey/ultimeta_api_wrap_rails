@@ -1,11 +1,12 @@
 .container
-  %h1 Текущие закупки
+  %h1="Не закрытые процедуры (#{@tenders.size})"
   .table-responsive
     %table.table
       %thead
         %tr
           %th Номер процедуры
           %th Имя
+          %th Срок итогов
           %th Заказчик
 
       %tbody
@@ -13,6 +14,7 @@
           %tr
             %td= link_to tender.data_id, tender
             %td= link_to tender.data_name, rails_email_preview.rep_email_path(preview_id: 'tender_mailer_preview-invitation', tender_id: tender.data_id)
+            %td= "#{tender.time_zone_results_till} проёбываются #{(Time.now.to_i - tender.time_results_till.to_i) / (24 * 60 * 60)} дней!"
             %td= tender.data_customer_name
 
 %br

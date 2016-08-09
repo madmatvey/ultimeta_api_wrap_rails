@@ -4,9 +4,12 @@ class TendersController < ApplicationController
   # GET /tenders
   # GET /tenders.json
   def index
-    @tenders = Tender.all
+    @tenders = Tender.all_active_now
   end
 
+  def unfinished
+    @tenders = Tender.all_unfinished
+  end
   # GET /tenders/1
   # GET /tenders/1.json
   def show

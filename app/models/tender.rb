@@ -11,6 +11,10 @@ class Tender < ActiveRecord::Base
     url.to_s
   end
 
+  def data_status
+    self.data['PurchaseStatus']
+  end
+
   def data_root_link
     URI.join(data_link, "/").to_s
   end
@@ -129,8 +133,13 @@ class Tender < ActiveRecord::Base
     Tender.where("data ->> 'Id' ~* ?", '^' + number.to_s + '-\S')
   end
 
+  def self.all_active_now
+    Tender.where("data -> 'PurchaseStatus' ? :status", status: 'Текущая закупка')
+  end
 
-
+  def self.all_unfinished
+    Tender.where("data -> 'PurchaseStatus' ? :status", status: 'На стадии рассмотрения заявок')
+  end
 
   private
 
