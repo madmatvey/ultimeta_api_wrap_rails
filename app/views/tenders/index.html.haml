@@ -1,0 +1,18 @@
+.container
+  %h1 Tenders
+  .table-responsive
+    %table.table
+      %thead
+        %tr
+          %th Номер процедуры
+          %th Имя
+          %th Статус
+
+      %tbody
+        - @tenders.each do |tender|
+          %tr
+            %td= link_to tender.data_id, tender
+            %td= link_to tender.data_name, rails_email_preview.rep_email_path(preview_id: 'tender_mailer_preview-invitation', tender_id: tender.data_id)
+            %td= tender.data['PurchaseStatus']
+
+%br

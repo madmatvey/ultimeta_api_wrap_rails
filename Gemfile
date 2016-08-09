@@ -31,6 +31,9 @@ gem 'holidays'
 
 gem 'amorail'
 
+gem 'bootstrap-sass'
+gem 'font-awesome-sass', '~> 4.6.2'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
