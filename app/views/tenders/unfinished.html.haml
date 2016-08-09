@@ -14,7 +14,12 @@
           %tr
             %td= link_to tender.data_id, tender
             %td= link_to tender.data_name, rails_email_preview.rep_email_path(preview_id: 'tender_mailer_preview-invitation', tender_id: tender.data_id)
-            %td= "#{tender.time_zone_results_till} проёбываются #{(Time.now.to_i - tender.time_results_till.to_i) / (24 * 60 * 60)} дней!"
+            %td
+              - days_to_go = (Time.now.to_i - tender.time_results_till.to_i) / (24 * 60 * 60)
+              -if days_to_go > 0
+                ="#{tender.time_zone_results_till} проёбываются #{days_to_go} дней!"
+              -else
+                ="#{tender.time_zone_results_till} осталось #{-days_to_go} дней!"
             %td= tender.data_customer_name
 
 %br
