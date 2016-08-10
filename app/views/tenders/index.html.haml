@@ -1,6 +1,9 @@
 .container
   %h1= "Текущие закупки (#{@tenders.size})"
   .table-responsive
+    = button_to "Импортировать (last: #{Time.at(@import_last.time_to).to_formatted_s(:short)})", |
+      { controller: :imports, action: :new },                                                    |
+      { remote: true, method: :get, class: "btn btn-info" }                                      |
     %table.table
       %thead
         %tr

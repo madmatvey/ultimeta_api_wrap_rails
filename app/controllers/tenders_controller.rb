@@ -6,11 +6,13 @@ class TendersController < ApplicationController
   def index
     @tenders = Tender.all_active_now
     @unfinished_count = Tender.all_unfinished.count
+    @import_last = Import.last
   end
 
   def unfinished
     @tenders = Tender.all_unfinished
     @current_count = Tender.all_active_now.count
+    @import_last = Import.last
   end
   # GET /tenders/1
   # GET /tenders/1.json

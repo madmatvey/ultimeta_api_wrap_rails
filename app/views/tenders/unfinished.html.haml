@@ -2,6 +2,11 @@
   %h1="Не закрытые процедуры (#{@tenders.size})"
   .table-responsive
     =link_to "Текущие процедуры (#{@current_count})", tenders_path, class: "btn btn-primary"
+    %br/
+    %br/
+    = button_to "Импортировать (last: #{Time.at(@import_last.time_to).to_formatted_s(:short)})", |
+      { controller: :imports, action: :new },                                                    |
+      { remote: true, method: :get, class: "btn btn-info" }                                                             |
     %table.table
       %thead
         %tr
