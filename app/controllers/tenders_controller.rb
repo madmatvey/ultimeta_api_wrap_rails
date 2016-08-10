@@ -5,10 +5,12 @@ class TendersController < ApplicationController
   # GET /tenders.json
   def index
     @tenders = Tender.all_active_now
+    @unfinished_count = Tender.all_unfinished.count
   end
 
   def unfinished
     @tenders = Tender.all_unfinished
+    @current_count = Tender.all_active_now.count
   end
   # GET /tenders/1
   # GET /tenders/1.json

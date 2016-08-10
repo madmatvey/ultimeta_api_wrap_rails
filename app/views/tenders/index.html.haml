@@ -16,4 +16,4 @@
             %td= tender.data_customer_name
 
     %br
-    =link_to "Не закрытые процедуры", unfinished_path, class: "btn btn-danger"
+    =link_to "Не закрытые процедуры (#{@unfinished_count})", unfinished_path, class: "btn btn-danger"

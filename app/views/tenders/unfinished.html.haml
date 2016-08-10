@@ -1,7 +1,7 @@
 .container
   %h1="Не закрытые процедуры (#{@tenders.size})"
   .table-responsive
-    =link_to "Текущие процедуры", tenders_path, class: "btn btn-primary"
+    =link_to "Текущие процедуры (#{@current_count})", tenders_path, class: "btn btn-primary"
     %table.table
       %thead
         %tr

@@ -6,7 +6,7 @@ class ImportJob < ActiveJob::Base
     import.load_data_from_api
     import.save!
     import.reload
-    import.find_changes_tenders
+    # import.find_changes_tenders
     import.save_all_tenders!
   end
 end
