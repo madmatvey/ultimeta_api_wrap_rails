@@ -34,6 +34,8 @@ gem 'amorail'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass', '~> 4.6.2'
 
+gem 'sidekiq'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -65,6 +67,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+
+gem 'puma'
 
 group :production do
   gem 'rails_12factor'
