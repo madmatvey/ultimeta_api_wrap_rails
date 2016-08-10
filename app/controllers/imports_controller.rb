@@ -14,7 +14,9 @@ class ImportsController < ApplicationController
 
   # GET /imports/new
   def new
-    @import = Import.new
+    job = ImportJob.perform_later
+    render json: job
+    # @import = Import.new
   end
 
   # GET /imports/1/edit

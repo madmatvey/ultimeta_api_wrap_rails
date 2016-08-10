@@ -48,12 +48,27 @@ class Import < ActiveRecord::Base
 
   def save_all_tenders!
     if self.data != nil
-      self.tenders.reverse.each do |tender|
-        t = Tender.new
-        t.data = tender
-        t.digest = Digest::SHA1.hexdigest(tender.to_s)
-        t.save
-        puts "Сохраняю тендер #{tender['Id']} (#{t.digest})"
+      self.tenders.each do |tender|
+        if t = Tender.find_by_data_id(tender['Id']).first
+          puts "Нашел тендер #{t.data_id}"
+          digest = Digest::SHA1.hexdigest(tender.to_s)
+          if t.digest == digest
+            puts "Сравнил хеши – одинаковые [ПРОПУСКАЮ] (#{t.digest})==(#{digest})"
+
+          else
+            puts "Сравнил хеши – НЕ одинаковые: [ОБНОВЛЯЮ ИНФО по процедуре и записываю модификации]"
+            t.modifications.create({ data: HashDiff.diff(tender,t.data) })
+            t.data = tender
+            t.digest = digest
+            t.save
+          end
+        else
+          t = Tender.new
+          t.data = tender
+          t.digest = Digest::SHA1.hexdigest(tender.to_s)
+          t.save
+          puts "Сохраняю новый тендер #{tender['Id']} (#{t.digest})"
+        end
       end
     end
   end

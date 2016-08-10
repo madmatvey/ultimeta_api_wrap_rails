@@ -16,7 +16,10 @@ Rails.application.routes.draw do
   get 'tenders/unfinished' => 'tenders#unfinished', :as => :unfinished
   resources :tenders, only: [:index, :show]
 
+  resources :imports
 
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
   # Example resource route with options:
   #   resources :products do
   #     member do
