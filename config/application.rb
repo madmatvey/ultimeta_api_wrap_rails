@@ -22,5 +22,11 @@ module UltimetaApiWrapRails
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+
+    config.after_initialize do
+      PasswordAgingJob.perform_later
+      SetOffCallJob.perform_later
+    end
   end
 end
