@@ -35,6 +35,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass', '~> 4.6.2'
 
 gem 'sidekiq'
+gem 'redis'
 
 
 # Use jquery as the JavaScript library
