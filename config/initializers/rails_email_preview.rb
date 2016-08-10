@@ -4,17 +4,17 @@ require 'rails_email_preview'
 RailsEmailPreview.setup do |config|
 
 
-  config.style.merge!(
-    btn_active_class_modifier: 'active',
-    btn_danger_class:          'btn btn-danger',
-    btn_default_class:         'btn btn-default',
-    btn_group_class:           'btn-group btn-group-sm',
-    btn_primary_class:         'btn btn-primary',
-    form_control_class:        'form-control',
-    list_group_class:          'list-group',
-    list_group_item_class:     'list-group-item',
-    row_class:                 'row',
-    )
+  # config.style.merge!(
+  #   btn_active_class_modifier: 'active',
+  #   btn_danger_class:          'btn btn-danger',
+  #   btn_default_class:         'btn btn-default',
+  #   btn_group_class:           'btn-group btn-group-sm',
+  #   btn_primary_class:         'btn btn-primary',
+  #   form_control_class:        'form-control',
+  #   list_group_class:          'list-group',
+  #   list_group_item_class:     'list-group-item',
+  #   row_class:                 'row',
+  #   )
   #
   #  # hook before rendering preview:
   #  config.before_render do |message, preview_class_name, mailer_action|
@@ -25,7 +25,7 @@ RailsEmailPreview.setup do |config|
   #  end
   #
   #  # do not show Send Email button
-  #  config.enable_send_email = false
+   config.enable_send_email = false
   #
   #  # You can specify a controller for RailsEmailPreview::ApplicationController to inherit from:
   #  config.parent_controller = 'Admin::ApplicationController' # default: '::ApplicationController'

@@ -20,6 +20,7 @@ class TenderMailerPreview
   private
 
     def find_tender
+      @tender_id ||= Tender.last.data_id
       if @tender_id.include?('-')
         @tender = Tender.find_by_data_id(@tender_id).first
       else
