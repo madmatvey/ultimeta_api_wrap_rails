@@ -26,7 +26,7 @@ class TenderMailerPreview
       else
         @tender = Tender.find_by_number(@tender_id).first
       end
-      @lot_arr||=[1,2,3] # по умолчанию три первых лота
+      @lot_arr||=[1, 2, 3] # по умолчанию три первых лота
       @lot_arr.sort!.uniq!
       @manager_pic = Amorail.properties.data['users'][2]['photo_url']
     end
