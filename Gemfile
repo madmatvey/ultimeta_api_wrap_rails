@@ -14,7 +14,6 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 
-
 gem 'paperclip', '~> 3.0'
 # gem 'sequel'
 gem 'nokogiri'
@@ -36,8 +35,7 @@ gem 'font-awesome-sass', '~> 4.6.2'
 
 gem 'sidekiq'
 gem 'redis'
-gem 'sinatra', :require => false
-
+gem 'sinatra', require: false
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -65,9 +63,9 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'rubocop', require: false
+  gem 'haml-lint', require: false
 end
 
 gem 'puma'
