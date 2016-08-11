@@ -6,6 +6,6 @@
 
 Application for business process automation with xml-API {24TENDER}[http://24tender.ru/] and {AmoCRM}[https://www.amocrm.ru/]
 
-Things you may want to cover:
+Things you may want to know:
 
 * Ruby version 2.2.4
