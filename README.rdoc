@@ -4,7 +4,7 @@
 
 == README
 
-Application for business process automation with xml-API (24TENDER) and AmoCRM
+Application for business process automation with xml-API {24TENDER}[http://24tender.ru/] and {AmoCRM}[https://www.amocrm.ru/]
 
 Things you may want to cover:
 
