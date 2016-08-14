@@ -36,6 +36,7 @@ gem 'font-awesome-sass', '~> 4.6.2'
 gem 'sidekiq'
 gem 'redis'
 gem 'sinatra', require: false
+gem 'sidekiq_status'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
