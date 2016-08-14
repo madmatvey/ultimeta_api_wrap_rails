@@ -1,0 +1,2 @@
+module AmowidgetHelper
+end

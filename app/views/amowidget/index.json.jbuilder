@@ -1,0 +1,1 @@
+json.array! @amowidgets, partial: 'amowidgets/amowidget', as: :amowidget

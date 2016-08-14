@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get 'tenders/unfinished' => 'tenders#unfinished', :as => :unfinished
   resources :tenders, only: [:index, :show]
 
+  resources :amowidget, only: [:index]
+
   resources :imports
 
   require 'sidekiq/web'

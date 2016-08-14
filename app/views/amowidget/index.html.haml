@@ -1,0 +1,23 @@
+.container
+  .tenders{id: "tenders_all"}
+    .label.label-info="Всего тендеров:"
+    .badge=@tenders.count
+
+  .tenders_active_now{id: "tenders_active_now"}
+    -if @tenders_active_now.count == 0
+      .label.label-warning="Нет активных процедур"
+    -else
+      .label.label-warning="Активных процедур:"
+      .badge.badge-warning=@tenders_active_now.count
+
+  .tenders_unfinished{id: "tenders_unfinished"}
+    - if @tenders_unfinished.count == 0
+      .label.label-success="Нет не закрытых процедур"
+    -else
+      .label.label-info="Не закрытых процедур:"
+      .badge.badge-important=@tenders_unfinished.count
+  %br/
+  .import_last{id: "import_last"}
+    = button_to "Импорт от: #{ActiveSupport::TimeZone['Samara'].at(@import_last.time_to).to_formatted_s(:short)}", |
+      { controller: :imports, action: :new },                                                    |
+      { remote: true, method: :get, class: "btn btn-xs btn-info", id: "import_button"}                                      |
