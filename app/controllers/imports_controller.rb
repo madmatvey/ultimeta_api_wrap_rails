@@ -19,6 +19,12 @@ class ImportsController < ApplicationController
     # @import = Import.new
   end
 
+  def last
+    # last_data = ActiveSupport::TimeZone['Samara'].at(Import.last.time_to).to_formatted_s(:short)
+    last_data = Import.last.time_to
+    render json: last_data
+  end
+
   def status
     status = ActiveJobStatus::JobStatus.get_status(job_id: params[:job_id])
     render json: status

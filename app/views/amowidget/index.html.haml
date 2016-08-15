@@ -19,3 +19,7 @@
   %br/
   .import_last{id: "import_last"}
     = button_tag  "Импорт от: #{ActiveSupport::TimeZone['Samara'].at(@import_last.time_to).to_formatted_s(:short)}", class: "btn btn-xs btn-info", id: "import_button"
+  #circleG{ style: 'display: none;' }
+    #circleG_1.circleG
+    #circleG_2.circleG
+    #circleG_3.circleG
