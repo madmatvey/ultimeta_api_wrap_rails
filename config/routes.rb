@@ -18,7 +18,10 @@ Rails.application.routes.draw do
 
   resources :amowidget, only: [:index]
 
+  match 'imports/status' => 'imports#status', as: :status, via: [:get, :post]
   resources :imports
+  # get 'imports/status' => 'imports#status', :as => :status
+
 
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'

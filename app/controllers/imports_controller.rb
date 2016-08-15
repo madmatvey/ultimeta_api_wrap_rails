@@ -19,6 +19,11 @@ class ImportsController < ApplicationController
     # @import = Import.new
   end
 
+  def status
+    status = ActiveJobStatus::JobStatus.get_status(job_id: params[:job_id])
+    render json: status
+  end
+
   # GET /imports/1/edit
   def edit
   end
@@ -71,6 +76,6 @@ class ImportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def import_params
-      params.require(:import).permit(:time_to, :time_from, :data)
+      params.require(:import).permit(:time_to, :time_from, :data, :job_id)
     end
 end

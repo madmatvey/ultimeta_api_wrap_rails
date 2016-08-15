@@ -1,5 +1,6 @@
-class ImportJob < ActiveJob::Base
+class ImportJob < ActiveJobStatus::TrackableJob
   queue_as :default
+  # include ActiveJobStatus::Hooks
 
   def perform(*args)
     import = Import.new
