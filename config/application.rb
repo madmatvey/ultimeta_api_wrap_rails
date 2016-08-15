@@ -23,9 +23,7 @@ module UltimetaApiWrapRails
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    # config.redis = { url: (ENV["REDISTOGO_URL"] || "redis://localhost:6379/")}
 
-  
     # config.cache_store = :redis_store, "#{uri.to_s}0/cache", { expires_in: 90.minutes }
     # config.after_initialize do
     #   PasswordAgingJob.perform_later
