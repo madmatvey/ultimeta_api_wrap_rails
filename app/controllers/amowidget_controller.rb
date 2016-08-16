@@ -1,5 +1,5 @@
 class AmowidgetController < ApplicationController
-  # after_action :allow_amo_iframe
+  after_action :allow_amo_iframe
   # GET /amowidget
   # GET /amowidget.json
   def index
@@ -15,7 +15,7 @@ class AmowidgetController < ApplicationController
       params.fetch(:amowidget, {})
     end
 
-    # def allow_amo_iframe
-    #   response.headers['X-Frame-Options'] = 'ALLOW-FROM https://24tender.amocrm.ru'
-    # end
+    def allow_amo_iframe
+      response.headers.except! 'X-Frame-Options'
+    end
 end
