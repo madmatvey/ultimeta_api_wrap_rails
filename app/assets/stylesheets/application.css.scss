@@ -16,3 +16,8 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  // @import "rails_email_preview/application";
+ @media (min-width: 1024px) {
+     .container{
+         max-width: 1300px;
+     }
+ }
