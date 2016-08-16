@@ -23,3 +23,57 @@
     #circleG_1.circleG
     #circleG_2.circleG
     #circleG_3.circleG
+
+  #authForm
+    %form
+      .form-group
+        %input.form-control{:name => "login", :placeholder => "Логин", :type => "text"}/
+      .form-group
+        %input.form-control{:name => "password", :placeholder => "Пароль", :type => "password"}/
+      %button.btn.btn-primary.auth-submit{:type => "submit"} Войти
+      %a.auth-register{:href => "http://hyper-script.ru", :target => "_blank"} Регистрация
+  #error_box{:style => "display: none;"}
+    .alert.alert-danger{:role => "alert"}
+  .js_box.js_view_box
+    .progressBar
+      .progressIndicator
+        %div
+          %span.progressPercent> 0
+          \% готово
+        .progressLineBack
+          .progressLineFill
+      %button.talk_is_over.btn.btn-primary Разговор окончен
+    .script-target
+      %span.glyphicon.glyphicon-record>
+       Цель: 
+      %span.target-content
+    .log
+    .view_box_sidebar
+      .js_starred_box
+        %h4 Быстрые переходы
+      .js_outnotes_box
+        %h4 Заметки
+        .outnotes_box-search
+          %input.form-control.input-sm{:placeholder => "Поиск", :type => "text"}/
+          %span.glyphicon.glyphicon-remove.js_outnotes_box-reset
+        .outnotes_box-view.hidden
+          .outnotes_box-view-close.close ×
+          %h5.outnotes_box-title
+          .outnotes_box-content
+        .outnotes_box-recommend
+          %h5 Рекомендованные
+        %h5.outnotes_box-other.hidden Остальные
+      .js_outfields_box
+        %h4 Данные
+  %ul#scriptList
+  #maximize{:style => "display: none;"}
+    %span.current-script
+    %button.btn.btn-primary.do-maximize{:type => "submit"} Развернуть
+  %script{:src => "/js/jquery-2.0.3.min.js?20160728"}
+  %script{:src => "/bootstrap/js/bootstrap.min.js?20160728"}
+  %script{:src => "/js/fancybox/jquery.fancybox.pack.js?20160728"}
+  %script{:src => "/js/app.js?20160728"}
+  %script{:src => "/bundles/spscript/js/appfields.js?20160728"}
+  %script{:src => "/bundles/spscript/js/appnotes.js?20160728"}
+  %script{:src => "/bundles/spapi/js/appamowidgetscript.js?20160728"}
+  %script{:src => "/bundles/spapi/js/appamowidget.js?20160728"}

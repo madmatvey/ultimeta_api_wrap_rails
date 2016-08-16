@@ -1,5 +1,6 @@
 class AmowidgetController < ApplicationController
   after_action :allow_amo_iframe
+  layout 'widget'
   # GET /amowidget
   # GET /amowidget.json
   def index
@@ -17,5 +18,6 @@ class AmowidgetController < ApplicationController
 
     def allow_amo_iframe
       response.headers.except! 'X-Frame-Options'
+      response.headers['X-XSS-Protection'] = "0"
     end
 end
