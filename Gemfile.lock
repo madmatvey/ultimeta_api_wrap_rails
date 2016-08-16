@@ -314,6 +314,7 @@ DEPENDENCIES
   rails_12factor
   rails_email_preview (~> 2.0.1)
   readthis
+  redis
   redis-rails
   rubocop
   sass-rails (~> 5.0)

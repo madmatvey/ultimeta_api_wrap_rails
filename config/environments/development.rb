@@ -20,14 +20,6 @@ Rails.application.configure do
   }
 
 
-  uri = URI.parse(ENV["REDISTOGO_URL"])
-  config.cache_store = :readthis_store, {
-    expires_in: 2.weeks.to_i,
-    namespace: 'cache',
-    redis: { url: uri.to_s, driver: :hiredis }
-  }
-
-
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 

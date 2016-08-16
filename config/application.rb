@@ -23,8 +23,14 @@ module UltimetaApiWrapRails
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
+    uri = URI.parse(ENV["REDISTOGO_URL"] || "redis://localhost:6379/").to_s
+    # config.cache_store = :readthis_store, "#{uri.to_s}0/cache", { expires_in: 90.minutes }
 
-    # config.cache_store = :redis_store, "#{uri.to_s}0/cache", { expires_in: 90.minutes }
+    config.cache_store = :readthis_store, {
+      expires_in: 2.weeks.to_i,
+      namespace: 'cache',
+      redis: { url: uri, driver: :hiredis }
+    }
     # config.after_initialize do
     #   PasswordAgingJob.perform_later
     #   SetOffCallJob.perform_later

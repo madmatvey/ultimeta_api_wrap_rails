@@ -34,7 +34,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass', '~> 4.6.2'
 
 gem 'sidekiq'
-# gem 'redis'
+gem 'redis'
 gem 'sinatra', require: false
 gem 'active_job_status'
 gem 'redis-rails'
