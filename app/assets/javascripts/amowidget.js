@@ -27,7 +27,12 @@ $(document).on("click","#import_button",function() {
    });
 });
 
-
+function getUserTenders(){
+  $.getJSON("/amowidget.json", function(data) {
+    event.preventDefault();
+    return data
+  });
+}
 
 
 
