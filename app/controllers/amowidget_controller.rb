@@ -8,6 +8,17 @@ class AmowidgetController < ApplicationController
     @tenders_active_now = Tender.all_active_now
     @tenders_unfinished = Tender.all_unfinished
     @import_last = Import.last
+    json_msg = {
+                  tenders: Tender.data_ids,
+                  tenders_active_now: Tender.data_ids(@tenders_active_now),
+                  tenders_unfinished: Tender.data_ids(@tenders_unfinished),
+                  import_last: @import_last.time_to
+               }
+    respond_to do |format|
+      format.html
+      format.json  { render :json => json_msg }
+    end
+
   end
 
 

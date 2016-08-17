@@ -141,6 +141,14 @@ class Tender < ActiveRecord::Base
     Tender.where("data -> 'PurchaseStatus' ? :status", status: 'На стадии рассмотрения заявок')
   end
 
+  def self.data_ids(tenders = Tender.all)
+    data_ids = []
+    tenders.each do |t|
+      data_ids << t.data_id
+    end
+    data_ids
+  end
+
   private
 
     def time_zone(time)
