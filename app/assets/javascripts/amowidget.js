@@ -42,6 +42,8 @@ function listener(event) {
   // }
 
   console.log( "получено: " + event.data );
+  console.log( "откуда получено: " + event.origin );
+  console.log(event);
 }
 
 if (window.addEventListener) {
