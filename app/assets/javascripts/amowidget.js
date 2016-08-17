@@ -210,14 +210,13 @@ $(document).ready(function(){
 
             $.getJSON("/amowidget.json", params, function(result) {
                 event.preventDefault();
-                console.log("result from iframe: " + result);
-                console.log(result);
+
                 var data = {};
 
-                if (result.response) {
+                if (result.tenders) {
 
                     data.status = 'ok';
-                    data.data = result.response;
+                    data.data = result;
                 }
                 else {
                     data.status = 'error';
