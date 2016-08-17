@@ -36,13 +36,13 @@ function getUserTenders(){
 
 
 function listener(event) {
-  // if (event.origin != 'https://24tender.amocrm.ru') {
-  //   // что-то прислали с неизвестного домена - проигнорируем..
-  //   return;
-  // }
+  if (event.origin != 'https://24tender.amocrm.ru') {
+    console.log( "что-то прислали с неизвестного домена - откуда получено: " + event.origin );
+    // что-то прислали с неизвестного домена - проигнорируем..
+    return;
+  }
 
   console.log( "получено: " + event.data );
-  console.log( "откуда получено: " + event.origin );
   console.log(event);
 }
 
