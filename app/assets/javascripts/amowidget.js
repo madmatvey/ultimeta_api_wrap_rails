@@ -211,6 +211,7 @@ $(document).ready(function(){
             $.getJSON("/amowidget.json", params, function(result) {
                 event.preventDefault();
                 console.log("result from iframe: " + result);
+                console.log(result);
                 var data = {};
 
                 if (result.response) {
