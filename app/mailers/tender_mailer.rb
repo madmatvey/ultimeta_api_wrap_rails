@@ -26,6 +26,8 @@ class TenderMailer < ApplicationMailer
 
 private
 
+
+
   def tender_not_find
     Tender.new({data:{
       'Link' => 'http://24tender.ru',
