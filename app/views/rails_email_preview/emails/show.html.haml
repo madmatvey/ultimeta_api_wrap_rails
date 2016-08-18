@@ -1,8 +1,11 @@
 .container
-  = "Some Info"
-  %p
-    = params.inspect
-%hr
-= with_show_hook :email_body do
-  - # actual email content, rendered in an iframe to prevent browser styles from interfering
-  = render 'rails_email_preview/emails/email_iframe'
+  = "tender_id: #{params[:tender_id]} | "
+  = "lot_arr: #{params[:lot_arr]} | "
+  = "contact_id: #{params[:contact_id]} | "
+  = "manager_id: #{params[:manager_id]} | "
+  %hr
+  = @mail_body_html
+
+-# = with_show_hook :email_body do
+-#   - # actual email content, rendered in an iframe to prevent browser styles from interfering
+-#   = render 'rails_email_preview/emails/email_iframe'
