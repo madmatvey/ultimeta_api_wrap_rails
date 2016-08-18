@@ -70,6 +70,7 @@ group :development do
   gem 'spring'
   gem 'rubocop', require: false
   gem 'haml-lint', require: false
+  gem 'meta_request'
 end
 
 gem 'puma'

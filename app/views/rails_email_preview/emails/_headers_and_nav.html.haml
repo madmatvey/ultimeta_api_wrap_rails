@@ -1,0 +1,6 @@
+.rep--panel
+  %div{:class => "#{rep_style[:row_class]}"}
+    #email-headers.rep--email-headers{"data-url" => "#{rails_email_preview.rep_email_headers_path(preview_params)}"}
+      = render 'rails_email_preview/emails/headers', mail: @mail
+    .rep--email-nav-container
+      = render 'nav'

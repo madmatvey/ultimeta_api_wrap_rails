@@ -6,7 +6,7 @@ class TenderMailer < ApplicationMailer
     if @tender == nil
         @tender = tender_not_find
     end
-    @url  = 'http://example.com/login'
+    # @url  = 'http://example.com/login'
     @lot_arr = lot_arr
     @manager_pic = manager_pic
     mail(to: "e_leontiev@24tender.ru", subject: "#{@tender.data_id} приглашение на процедуру")

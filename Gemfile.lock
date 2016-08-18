@@ -61,6 +61,7 @@ GEM
       activesupport (>= 3.1.0)
       tzinfo
     byebug (9.0.5)
+    callsite (0.0.11)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -85,6 +86,7 @@ GEM
       faraday (>= 0.7.4, < 0.10)
     font-awesome-sass (4.6.2)
       sass (>= 3.2)
+    git-version-bump (0.15.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     haml (4.0.7)
@@ -131,6 +133,10 @@ GEM
       actionmailer (>= 3.2.13)
       json (>= 1.7.7)
       rest-client (>= 1.6.7)
+    meta_request (0.4.0)
+      callsite (~> 0.0, >= 0.0.11)
+      rack-contrib (~> 1.1)
+      railties (>= 3.0.0, < 5.1.0)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
@@ -154,6 +160,9 @@ GEM
     powerpack (0.1.1)
     puma (3.6.0)
     rack (1.6.4)
+    rack-contrib (1.4.0)
+      git-version-bump (~> 0.15)
+      rack (~> 1.4)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -306,6 +315,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mailgun_rails
+  meta_request
   nokogiri
   paperclip (~> 3.0)
   pg (~> 0.15)
