@@ -36,7 +36,9 @@ private
     else
       @tender = Tender.find_by_number(@tender_id).first
     end
-    @lot_arr = [1, 2, 3] if @lot_arr == '' # по умолчанию три первых лота
+    unless @lot_arr.kind_of(Array)
+      @lot_arr = [1, 2, 3]  # по умолчанию три первых лота
+    end
     @lot_arr.sort!.uniq!
 
     @client = Amorail::Contact.find(@contact_id) || Amorail::Lead.find(@contact_id).contacts.first
