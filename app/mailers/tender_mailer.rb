@@ -36,7 +36,11 @@ private
     else
       @tender = Tender.find_by_number(@tender_id).first
     end
-    puts @lot_arr
+    puts "
+        LOT ARR == #{@lot_arr}
+        LOT ARR CLASS == #{@lot_arr.class}
+
+      "
     if @lot_arr == nil #.kind_of(Array)
       @lot_arr = [1, 2, 3]  # по умолчанию три первых лота
     end
