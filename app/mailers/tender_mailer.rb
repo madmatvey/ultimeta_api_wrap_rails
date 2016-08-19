@@ -12,6 +12,7 @@ class TenderMailer < ApplicationMailer
       @lot_arr = [1, 2, 3]  # по умолчанию три первых лота
     else
       @lot_arr = lot_arr
+      @lot_arr.sort!.uniq! 
     end
 
     @manager_login = manager_login
@@ -46,14 +47,6 @@ private
     else
       @tender = Tender.find_by_number(@tender_id).first
     end
-    # puts "
-    #     LOT ARR == #{@lot_arr}
-    #     LOT ARR CLASS == #{@lot_arr.class}
-    #
-    #   "
-    # if @lot_arr.kind_of(Array)
-      @lot_arr.sort!.uniq!  # по умолчанию три первых лота
-    # end
 
 
     @client = Amorail::Contact.find(@contact_id) || Amorail::Lead.find(@contact_id).contacts.first
