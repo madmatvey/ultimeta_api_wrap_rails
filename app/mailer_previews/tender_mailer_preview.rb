@@ -31,7 +31,7 @@ class TenderMailerPreview
 
       @client = Amorail::Contact.find(@contact_id) || Amorail::Lead.find(@contact_id).contacts.first
 
-      @manager = Amorail.properties.data['users'].select{|user| user['login'] == @manager_login}.first
+      @manager = Amorail.properties.data['users'].select{|user| user['id'].to_i == @client.responsible_user_id}.first
 
     end
   # You can put all your mock helpers in a module
