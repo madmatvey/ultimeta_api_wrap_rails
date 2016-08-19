@@ -29,7 +29,7 @@ class TenderMailerPreview
       @lot_arr||=[1, 2, 3] # по умолчанию три первых лота
       @lot_arr.sort!.uniq!
 
-      @client = Amorail::Contact.find(@contact_id)
+      @client = Amorail::Contact.find(@contact_id) || Amorail::Lead.find(@contact_id).contacts.first
 
       @manager = Amorail.properties.data['users'].select{|user| user['login'] == @manager_login}.first
 
