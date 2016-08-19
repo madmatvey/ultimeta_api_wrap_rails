@@ -22,9 +22,21 @@ class AmowidgetController < ApplicationController
   end
 
 
+  def send_mail_invitation
+
+    job = TenderMailer.invitation(@tender,@lot_arr,@manager,@client).deliver_later
+    render json: job
+    # mail = ActionMailer::MessageDelivery.new
+    # ActionMailer::MessageDelivery.new() #_json(params[:mail]).deliver_now
+    # job = MailSendJob.perform_later(params[:mail])
+    #
+  end
+
+
   private
     def amowidget_params
-      params.fetch(:amowidget, {})
+      # params.fetch(:amowidget, {})
+      params.require(:amowidget).permit(:tender,:lot_arr,:manager,:client)
     end
 
 end

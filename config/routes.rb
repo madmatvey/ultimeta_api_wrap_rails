@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'tenders/unfinished' => 'tenders#unfinished', :as => :unfinished
   resources :tenders, only: [:index, :show]
 
+  post 'amowidget/send_mail_invitation' => 'amowidget#send_mail_invitation', as: :send_mail_invitation
   resources :amowidget, only: [:index]
 
   match 'imports/status' => 'imports#status', as: :status, via: [:get, :post]

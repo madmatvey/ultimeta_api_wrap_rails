@@ -1,16 +1,18 @@
 class TenderMailer < ApplicationMailer
   default from: 'info@24tender.ru'
 
-  def invitation(tender = nil, lot_arr, manager, client)
-    @tender = tender
+  def invitation(tender_id,lot_arr,manager_login,contact_id)
+    @tender_id = tender_id
+    @lot_arr = lot_arr
+    @manager_login = manager_login
+    @contact_id = contact_id
+    find_tender
     if @tender == nil
         @tender = tender_not_find
     end
     # @url  = 'http://example.com/login'
-    @lot_arr = lot_arr
-    @manager = manager
-    @client = client
-    mail(to: "e_leontiev@24tender.ru", subject: "#{@tender.data_id} приглашение на процедуру")
+
+    mail(to: @client.email, from: @manager['login'], subject: "#{@tender.data_id} приглашение на процедуру")
   end
 
   def invitation_for_registered_users
@@ -27,6 +29,21 @@ class TenderMailer < ApplicationMailer
 
 private
 
+  def find_tender
+    @tender_id ||= Tender.last.data_id
+    if @tender_id.include?('-')
+      @tender = Tender.find_by_data_id(@tender_id).first
+    else
+      @tender = Tender.find_by_number(@tender_id).first
+    end
+    @lot_arr||=[1, 2, 3] # по умолчанию три первых лота
+    @lot_arr.sort!.uniq!
+
+    @client = Amorail::Contact.find(@contact_id) || Amorail::Lead.find(@contact_id).contacts.first
+
+    @manager = Amorail.properties.data['users'].select{|user| user['id'].to_i == @client.responsible_user_id}.first
+
+  end
 
 
   def tender_not_find
