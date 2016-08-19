@@ -1,7 +1,7 @@
 class TenderMailer < ApplicationMailer
   default from: 'info@24tender.ru'
 
-  def invitation(tender = nil, lot_arr, manager)
+  def invitation(tender = nil, lot_arr, manager, client)
     @tender = tender
     if @tender == nil
         @tender = tender_not_find
@@ -9,6 +9,7 @@ class TenderMailer < ApplicationMailer
     # @url  = 'http://example.com/login'
     @lot_arr = lot_arr
     @manager = manager
+    @client = client
     mail(to: "e_leontiev@24tender.ru", subject: "#{@tender.data_id} приглашение на процедуру")
   end
 
