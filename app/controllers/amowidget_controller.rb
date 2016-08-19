@@ -24,7 +24,7 @@ class AmowidgetController < ApplicationController
 
   def send_mail_invitation
 
-    job = TenderMailer.invitation(params[:tender],params[:lot_arr],params[:manager],params[:client]).deliver_later
+    job = TenderMailer.invitation(params[:tender],params[:lot_arr],params[:manager],params[:client]).deliver_now
     render json: job
     # mail = ActionMailer::MessageDelivery.new
     # ActionMailer::MessageDelivery.new() #_json(params[:mail]).deliver_now
