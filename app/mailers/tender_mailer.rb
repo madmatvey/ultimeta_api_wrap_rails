@@ -51,9 +51,9 @@ private
     #     LOT ARR CLASS == #{@lot_arr.class}
     #
     #   "
-    if @lot_arr.kind_of(Array)
+    # if @lot_arr.kind_of(Array)
       @lot_arr.sort!.uniq!  # по умолчанию три первых лота
-    end
+    # end
 
 
     @client = Amorail::Contact.find(@contact_id) || Amorail::Lead.find(@contact_id).contacts.first
