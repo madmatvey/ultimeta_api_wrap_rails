@@ -1,7 +1,7 @@
 .container
   .well
     = "tender_id: #{params[:tender_id]} | "
-    = "lot_arr: #{params[:lot_arr]} | "
+    = "lot_arr: #{@lot_arr} | "
     = "contact_id: #{params[:contact_id]} | "
   %br
   .well
@@ -15,7 +15,7 @@
 
     = form_tag send_mail_invitation_path, method: :post do
       = hidden_field_tag :tender, params[:tender_id]
-      = hidden_field_tag :lot_arr, params[:lot_arr]
+      = hidden_field_tag :lot_arr, @lot_arr
       = hidden_field_tag :manager, params[:manager_login]
       = hidden_field_tag :client, params[:contact_id]
       = submit_tag "Отправить"
