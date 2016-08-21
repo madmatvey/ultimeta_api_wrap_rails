@@ -35,5 +35,8 @@ module UltimetaApiWrapRails
     #   PasswordAgingJob.perform_later
     #   SetOffCallJob.perform_later
     # end
+
+    config.action_controller.asset_host = "templates-from-api-24tender.herokuapp.com"
+
   end
 end
