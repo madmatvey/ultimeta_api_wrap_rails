@@ -36,7 +36,7 @@ class AmowidgetController < ApplicationController
   private
     def amowidget_params
       # params.fetch(:amowidget, {})
-      params.require(:amowidget).permit(:tender,lot_arr: [],:manager,:client)
+      params.require(:amowidget).permit(:tender,:manager,:client,:lot_arr => [])
     end
 
 end
