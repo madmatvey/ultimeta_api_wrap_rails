@@ -12,7 +12,7 @@ class TenderMailer < ApplicationMailer
       @lot_arr = [1, 2, 3]  # по умолчанию три первых лота
     else
       @lot_arr = lot_arr
-      @lot_arr.sort!.uniq! 
+      @lot_arr.sort!.uniq!
     end
 
     @manager_login = manager_login
@@ -23,7 +23,7 @@ class TenderMailer < ApplicationMailer
     end
     # @url  = 'http://example.com/login'
 
-    mail(to: @client.email, from: @manager['login'], subject: "#{@tender.data_id} приглашение на процедуру")
+    mail(to: @client.email, from: "#{@manager['name']} <#{@manager['login']}>", subject: "#{@tender.data_id} приглашение на процедуру")
   end
 
   def invitation_for_registered_users
