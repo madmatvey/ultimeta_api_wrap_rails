@@ -37,7 +37,7 @@ Rails.application.configure do
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
-  config.action_controller.asset_host = "templates-from-api-24tender.herokuapp.com"
+  # config.action_controller.asset_host = "templates-from-api-24tender.herokuapp.com"
 
 
   # Specifies the header that your server uses for sending files.
