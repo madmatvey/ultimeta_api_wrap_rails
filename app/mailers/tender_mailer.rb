@@ -18,6 +18,7 @@ class TenderMailer < ApplicationMailer
       @lot_arr = [1, 2, 3]  # по умолчанию три первых лота
     else
       @lot_arr = lot_arr
+      @lot_arr.map! {|lot| lot.to_i}
       @lot_arr.sort!.uniq!
     end
     puts " =-=-=-=-=-=-=-=-=-=
