@@ -1,7 +1,7 @@
 .container
   .well
-    = "tender_id: #{params[:tender_id]} | "
-    = "@lot_arr: #{@lot_arr.class} | "
+    = "tender: #{@tender.data_id} | "
+    = "all_lots: #{@all_lots} | "
     = "lot_arr(params): #{params[:lot_arr]}"
     = "contact_id: #{params[:contact_id]} | "
   %br
@@ -14,12 +14,13 @@
     -# = "mail id: #{@mail.to_yaml}"
     -# = "Mail class: #{@mail.object}"
 
-    = simple_form_for send_mail_invitation_path, method: :post do
-      = hidden_field_tag :tender, params[:tender_id]
-      = hidden_field_tag 'lot_arr[]', [1,2,3]
-      = hidden_field_tag :manager, params[:manager_login]
-      = hidden_field_tag :client, params[:contact_id]
-      = submit_tag "Отправить"
+    = simple_form_for :amowidget, url: '/amowidget/send_mail_invitation', method: :post do |f|
+      = f.input :lot_arr, collection: @tender.data_lots.collect{|lot| lot['Name']}, as: :check_boxes, input_html: { checked: params[:lot_arr] }
+      -# = f.collection_check_boxes :lot_arr, collection: @tender.data_lots.collect{|lot| lot['Name']}, :id, :name
+      = f.hidden_field :manager, value: @manager['login']
+      = f.hidden_field :tender, value: @tender.data_id
+      = f.hidden_field :client, value: @client.id.to_s
+      = f.submit "Отправить"
 
 
     -# = simple_form_for ActionMailer::MessageDelivery.new, :url => send_mail_path, :method => :post do |f|
@@ -27,6 +28,9 @@
     -#   = f.button :submit, "Отправить",:class => 'btn-xs btn btn-primary'
   %hr
   = render 'rails_email_preview/emails/email_iframe'
+  -# = @mail_body_html
+
+
 
 -# = with_show_hook :email_body do
 -#   - # actual email content, rendered in an iframe to prevent browser styles from interfering

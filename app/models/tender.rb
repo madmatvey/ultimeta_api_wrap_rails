@@ -23,6 +23,14 @@ class Tender < ActiveRecord::Base
     self.data['Name']
   end
 
+  def data_lots
+    if self.data['lots']['lot'].kind_of?(Array)
+      self.data['lots']['lot']
+    else
+      [self.data['lots']['lot']]
+    end
+  end
+
   def data_lots_count
     if self.data['lots']['lot'].kind_of?(Array)
       self.data['lots']['lot'].size

@@ -39,11 +39,37 @@ end
 Rails.application.config.to_prepare do
   # Render REP inside a custom layout (set to 'application' to use app layout, default is REP's own layout)
   # This will also make application routes accessible from within REP:
-  RailsEmailPreview.layout = 'admin'
+  # RailsEmailPreview.layout = 'admin'
 
   # Set UI locale to something other than :en
   RailsEmailPreview.locale = :ru
 
   # Auto-load preview classes from:
   RailsEmailPreview.preview_classes = RailsEmailPreview.find_preview_classes('app/mailer_previews')
+
+  RailsEmailPreview::ApplicationController.module_eval do
+    before_action :set_variables
+
+    private
+    def set_variables
+      @tender_id ||= params[:tender_id]
+      # puts "TENDER ID FROM CALLBACK: #{@tender_id}"
+      # puts "PARAMS FROM CALLBACK: #{params[:tender_id]}"
+      if @tender_id.include?('-')
+        @tender = Tender.find_by_data_id(@tender_id).first
+      else
+        @tender = Tender.find_by_number(@tender_id).first
+      end
+      if @contact_id == nil
+        @contact_id =  '10898404' #если что-то пошло не так, то писмьо отправиться тестовому контакту
+      end
+
+
+      @client = Amorail::Contact.find(@contact_id) || Amorail::Lead.find(@contact_id).contacts.first
+      puts "FIND CLIENT #{@client.name} from CONTACT ID: #{@contact_id}"
+      @manager = Amorail.properties.data['users'].select{|user| user['id'].to_i == @client.responsible_user_id}.first
+
+      @all_lots = @tender.data_lots_count
+    end
+  end
 end

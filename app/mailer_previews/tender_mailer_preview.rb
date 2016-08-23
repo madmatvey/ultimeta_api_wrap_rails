@@ -1,7 +1,13 @@
 class TenderMailerPreview
   # preview methods should return Mail objects, e.g.:
   def invitation
-    TenderMailer.invitation(@tender_id,@lot_arr,@manager_login,@contact_id)
+    tender_id = @tender_id
+    lot_arr = @lot_arr
+    manager_login = @manager_login
+    contact_id = @contact_id
+    @all_lots = 10
+    TenderMailer.invitation(tender_id,lot_arr,manager_login,contact_id)
+
   end
 
   def invitation_for_registered_users

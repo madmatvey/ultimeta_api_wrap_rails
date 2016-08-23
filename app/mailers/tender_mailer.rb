@@ -1,18 +1,19 @@
 class TenderMailer < ApplicationMailer
   default from: 'info@24tender.ru'
+  layout 'mailer'
 
   def invitation(tender_id,lot_arr,manager_login,contact_id)
     @tender_id = tender_id
-
-    puts " =-=-=-=-=-=-=-=-=-=
-
-        before initial
-        LOT ARR == #{lot_arr}
-        @LOT ARR CLASS == #{lot_arr.class}
-
-        =-=-=-=-=-=-=-=-=-=
-      "
-
+    #
+    # puts " =-=-=-=-=-=-=-=-=-=
+    #
+    #     before initial
+    #     LOT ARR == #{lot_arr}
+    #     @LOT ARR CLASS == #{lot_arr.class}
+    #
+    #     =-=-=-=-=-=-=-=-=-=
+    #   "
+    #
 
     if lot_arr == nil
       @lot_arr = [1, 2, 3]  # по умолчанию три первых лота
@@ -21,24 +22,23 @@ class TenderMailer < ApplicationMailer
       @lot_arr.map! {|lot| lot.to_i}
       @lot_arr.sort!.uniq!
     end
-    puts " =-=-=-=-=-=-=-=-=-=
-
-        after initial
-        @LOT ARR == #{@lot_arr}
-        @LOT ARR CLASS == #{@lot_arr.class}
-
-        =-=-=-=-=-=-=-=-=-=
-      "
+    # puts " =-=-=-=-=-=-=-=-=-=
+    #
+    #     after initial
+    #     @LOT ARR == #{@lot_arr}
+    #     @LOT ARR CLASS == #{@lot_arr.class}
+    #
+    #     =-=-=-=-=-=-=-=-=-=
+    #   "
 
     @manager_login = manager_login
     @contact_id = contact_id
     find_tender
-    if @tender == nil
-        @tender = tender_not_find
-    end
-    # @url  = 'http://example.com/login'
 
-    mail(to: @client.email, from: "#{@manager['name']} <#{@manager['login']}>", subject: "#{@tender.data_id} приглашение на процедуру")
+
+    mail( to: @client.email, from: "#{@manager['name']} <#{@manager['login']}>",subject: "#{@tender.data_id} приглашение на процедуру"
+        )
+
   end
 
   def invitation_for_registered_users
@@ -63,11 +63,17 @@ private
       @tender = Tender.find_by_number(@tender_id).first
     end
 
+    if @contact_id == nil
+      @contact_id =  '10898404' #если что-то пошло не так, то писмьо отправиться тестовому контакту
+    end
+
 
     @client = Amorail::Contact.find(@contact_id) || Amorail::Lead.find(@contact_id).contacts.first
-
+    puts "FIND CLIENT #{@client.name} from CONTACT ID: #{@contact_id}"
     @manager = Amorail.properties.data['users'].select{|user| user['id'].to_i == @client.responsible_user_id}.first
 
+
+    @all_lots = @tender.data_lots_count
   end
 
 
