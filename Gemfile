@@ -32,6 +32,7 @@ gem 'amorail'
 
 gem 'bootstrap-sass'
 gem 'font-awesome-sass', '~> 4.6.2'
+gem 'simple_form'
 
 gem 'sidekiq'
 gem 'redis'
