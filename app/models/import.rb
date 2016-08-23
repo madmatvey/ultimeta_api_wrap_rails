@@ -14,12 +14,12 @@ class Import < ActiveRecord::Base
   def load_data_from_api(time_from = nil,time_to = nil)
 
     self.time_from = time_from || Time.parse("2013-01-01T00:00").to_i
-    self.time_to   = time_to   || Time.now.to_i + 10.hours.to_i
+    self.time_to   = time_to   || Time.now.to_i
 
     # if import.time_from + 300 > Time.now.to_i
     #   results = "OOPS! There are no 5 minutes from last import being.\n Now is #{Time.now} and last import was #{Time.at(import.time_from)} \n Wait for a #{Time.now.to_i - import.time_from - 300} seconds"
     # else
-    apiurl = "http://24tender.ru/api/trades/search?modifiedFrom="+Time.at(self.time_from).xmlschema+"&modifiedTo="+Time.at(self.time_to).xmlschema+"&page=1"
+    apiurl = "http://24tender.ru/api/trades/search?modifiedFrom="+Time.at(self.time_from).xmlschema+"&modifiedTo="+Time.at(self.time_to + 10.hours.to_i).xmlschema+"&page=1"
     puts "загружаю страницу 1"
     doc = Nokogiri.XML(open(apiurl))
     doc.encoding = 'utf-8'
