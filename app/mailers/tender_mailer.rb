@@ -3,17 +3,31 @@ class TenderMailer < ApplicationMailer
 
   def invitation(tender_id,lot_arr,manager_login,contact_id)
     @tender_id = tender_id
-    puts "
-        LOT ARR == #{@lot_arr}
-        LOT ARR CLASS == #{@lot_arr.class}
 
+    puts " =-=-=-=-=-=-=-=-=-=
+
+        before initial
+        LOT ARR == #{lot_arr}
+        @LOT ARR CLASS == #{lot_arr.class}
+
+        =-=-=-=-=-=-=-=-=-=
       "
+
+
     if lot_arr == nil
       @lot_arr = [1, 2, 3]  # по умолчанию три первых лота
     else
       @lot_arr = lot_arr
       @lot_arr.sort!.uniq!
     end
+    puts " =-=-=-=-=-=-=-=-=-=
+
+        after initial
+        @LOT ARR == #{@lot_arr}
+        @LOT ARR CLASS == #{@lot_arr.class}
+
+        =-=-=-=-=-=-=-=-=-=
+      "
 
     @manager_login = manager_login
     @contact_id = contact_id
