@@ -14,7 +14,7 @@
     -# = "mail id: #{@mail.to_yaml}"
     -# = "Mail class: #{@mail.object}"
 
-    = simple_form send_mail_invitation_path, method: :post do
+    = simple_form_for send_mail_invitation_path, method: :post do
       = hidden_field_tag :tender, params[:tender_id]
       = hidden_field_tag 'lot_arr[]', [1,2,3]
       = hidden_field_tag :manager, params[:manager_login]
