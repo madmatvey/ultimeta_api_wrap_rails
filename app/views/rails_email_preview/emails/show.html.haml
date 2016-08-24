@@ -24,12 +24,12 @@
   .well.well-sm
 
     = simple_form_for :amowidget, url: '/amowidget/send_mail_invitation', method: :post do |f|
-      = f.input :lot_arr, as: :check_boxes, collection: @tender.data_lots.collect!.with_index{|lot,i| [lot['Name'],i+1]}, checked: params[:lot_arr], include_hidden: false, label: "Выбери лоты которые интерсуют поставщика!", item_wrapper_class: 'checkbox-inline', :label_html => { :class => 'control-label col-sm-12' }
+      = f.input :lot_arr, as: :check_boxes, collection: @tender.data_lots.collect!.with_index{|lot,i| [lot['Name'],i+1]}, checked: params[:lot_arr], include_hidden: false, label: "Выбери лоты которые интерсуют поставщика!", item_wrapper_class: 'btn btn-default checkbox-inline', :label_html => { :class => 'control-label col-sm-12' }
       -# = f.collection_check_boxes :lot_arr, collection: @tender.data_lots.collect{|lot| lot['Name']}, :id, :name
       = f.hidden_field :manager, value: @mail.from.first
       = f.hidden_field :tender, value: @tender.data_id
       = f.hidden_field :client, value: params[:contact_id]
-      = f.submit "Отправить", class: 'btn-lg btn btn-success'
+      = f.submit "Отправить", class: 'btn-lg btn btn-success center-block'
 
 
     -# = simple_form_for ActionMailer::MessageDelivery.new, :url => send_mail_path, :method => :post do |f|
