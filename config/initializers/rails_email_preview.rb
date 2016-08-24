@@ -66,10 +66,19 @@ Rails.application.config.to_prepare do
 
 
       @client = Amorail::Contact.find(@contact_id) || Amorail::Lead.find(@contact_id).contacts.first
-      puts "FIND CLIENT #{@client.name} from CONTACT ID: #{@contact_id}"
       @manager = Amorail.properties.data['users'].select{|user| user['id'].to_i == @client.responsible_user_id}.first
 
       @all_lots = @tender.data_lots_count
+      puts "
+        -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+        |    REP initializer CALLBACK
+        |    tender = #{@tender.data_id}
+        |    tender.data_lots_count = #{@all_lots}
+        |    manager = #{@manager}
+        |    FIND CLIENT #{@client.name} from CONTACT ID: #{@contact_id}
+        -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+            "
+
     end
   end
 end

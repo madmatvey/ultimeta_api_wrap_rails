@@ -23,12 +23,22 @@ class AmowidgetController < ApplicationController
 
 
   def send_mail_invitation
-    if params[:lot_arr] != nil
-      @lot_arr = params[:lot_arr][0].split(" ")
+    if params[:amowidget]['lot_arr'] != nil
+      @lot_arr = params[:amowidget]['lot_arr']
+      if @lot_arr.size == 1
+        @lot_arr = @lot_arr[0].split(" ")
+      end
     else
       @lot_arr = [1,2,3]
     end
-    job = TenderMailer.invitation(params[:tender],@lot_arr,params[:manager],params[:client]).deliver_now
+    puts "
+          PARAMS: #{params}
+          params[:tender] = #{params[:amowidget]['tender']}
+          @lot_arr = #{@lot_arr}
+          params[:manager] = #{params[:amowidget]['manager']}
+          params[:client] = #{params[:amowidget]['client']}
+          "
+    job = TenderMailer.invitation(params[:amowidget]['tender'],@lot_arr,params[:amowidget]['manager'],params[:amowidget]['client']).deliver_now
     render json: job
     # mail = ActionMailer::MessageDelivery.new
     # ActionMailer::MessageDelivery.new() #_json(params[:mail]).deliver_now
