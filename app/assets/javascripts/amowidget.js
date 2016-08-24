@@ -204,7 +204,6 @@ $(document).ready(function(){
         getUserTenders: function(data, cb) {
 
             var params = {};
-            params.method = 'api.amoGetUserScripts';
             params.user = data.user;
             params.key = data.key;
 
