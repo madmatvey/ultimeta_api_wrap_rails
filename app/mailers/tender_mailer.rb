@@ -36,7 +36,10 @@ class TenderMailer < ApplicationMailer
     find_tender
 
 
-    mail( to: @client.email, from: "#{@manager['name']} <#{@manager['login']}>",subject: "#{@tender.data_id} приглашение на процедуру"
+    mail( to: @client.email,
+          from: "#{@manager['name']} <#{@manager['login']}>",
+          subject: "#{@tender.data_id} приглашение на процедуру",
+          bcc: "24tender@mail.amocrm.ru"
         )
 
   end
